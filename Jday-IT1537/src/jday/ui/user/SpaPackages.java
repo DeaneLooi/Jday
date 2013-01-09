@@ -131,10 +131,10 @@ public class SpaPackages extends BackgroundPanel /*BackgroundPanel*/ {
 		lblJdaysCoupleJourney.setBounds(25, 342, 220, 19);
 		add(lblJdaysCoupleJourney);
 		
-		JLabel lblSpaPackages = new JLabel("SPA PACKAGES\r\n");
-		lblSpaPackages.setIcon(new ImageIcon(SpaPackages.class.getResource("/TaxiKaraokeSpa/img/Logo.png")));
+		JLabel lblSpaPackages = new JLabel("   SPA PACKAGES\r\n");
+		lblSpaPackages.setIcon(new ImageIcon(SpaPackages.class.getResource("/images/Logo.png")));
 		lblSpaPackages.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
-		lblSpaPackages.setBounds(10, 11, 265, 121);
+		lblSpaPackages.setBounds(26, 11, 265, 121);
 		add(lblSpaPackages);
 
 	}

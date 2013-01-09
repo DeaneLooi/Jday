@@ -38,14 +38,14 @@ public class KaraokeRegular extends BackgroundPanel /*BackgroundPanel*/{
 		setLayout(null);
 		
 		JLabel lblKaraokeRooms = new JLabel("KARAOKE ROOMS");
-		lblKaraokeRooms.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/TaxiKaraokeSpa/img/microphone.png")));
+		lblKaraokeRooms.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/images/microphone.png")));
 		lblKaraokeRooms.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		lblKaraokeRooms.setBounds(12, -14, 286, 155);
 		add(lblKaraokeRooms);
 		
-		JLabel lblNewLabel_1 = new JLabel("              Friends Room");
+		JLabel lblNewLabel_1 = new JLabel("              Family Room");
 		lblNewLabel_1.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblNewLabel_1.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/TaxiKaraokeSpa/img/FriendsRoom.png")));
+		lblNewLabel_1.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/images/FamilyRoom.png")));
 		lblNewLabel_1.setBounds(329, 175, 375, 155);
 		add(lblNewLabel_1);
 		
@@ -75,15 +75,15 @@ public class KaraokeRegular extends BackgroundPanel /*BackgroundPanel*/{
 		txtpnRoomType.setBounds(12, 125, 286, 312);
 		add(txtpnRoomType);
 		
-		JLabel lblFamilyroom = new JLabel("              Family Room");
+		JLabel lblFamilyroom = new JLabel("              Friends Room");
 		lblFamilyroom.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblFamilyroom.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/TaxiKaraokeSpa/img/FamilyRoom.png")));
+		lblFamilyroom.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/images/FriendsRoom.png")));
 		lblFamilyroom.setBounds(329, 327, 385, 173);
 		add(lblFamilyroom);
 		
 		JLabel lblBusinessRoom = new JLabel("               Corporate Room");
 		lblBusinessRoom.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblBusinessRoom.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/TaxiKaraokeSpa/img/BusinessRoom.png")));
+		lblBusinessRoom.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/images/BusinessRoom.png")));
 		lblBusinessRoom.setBounds(329, 22, 375, 141);
 		add(lblBusinessRoom);
 

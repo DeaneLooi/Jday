@@ -39,17 +39,17 @@ public class TaxiBooking  extends BackgroundPanel /*BackgroundPanel*/ {
 		setLayout(null);
 		
 		JLabel lblImgComfort = new JLabel("");
-		lblImgComfort.setIcon(new ImageIcon(TaxiBooking.class.getResource("/TaxiKaraokeSpa/img/comfortCity.jpg")));
+		lblImgComfort.setIcon(new ImageIcon(TaxiBooking.class.getResource("/images/comfortCity.jpg")));
 		lblImgComfort.setBounds(131, 26, 221, 112);
 		add(lblImgComfort);
 		
 		JLabel lblImgSMRT = new JLabel("");
 		lblImgSMRT.setBounds(334, 26, 204, 112);
-		lblImgSMRT.setIcon(new ImageIcon(TaxiBooking.class.getResource("/TaxiKaraokeSpa/img/SMRT.jpg")));
+		lblImgSMRT.setIcon(new ImageIcon(TaxiBooking.class.getResource("/images/SMRT.jpg")));
 		add(lblImgSMRT);
 		
 		JLabel lblImgPremier = new JLabel("");
-		lblImgPremier.setIcon(new ImageIcon(TaxiBooking.class.getResource("/TaxiKaraokeSpa/img/PremierTaxi.jpg")));
+		lblImgPremier.setIcon(new ImageIcon(TaxiBooking.class.getResource("/images/PremierTaxi.jpg")));
 		lblImgPremier.setBounds(536, 26, 190, 112);
 		add(lblImgPremier);
 		

@@ -43,15 +43,6 @@ public class SpaBooking extends BackgroundPanel /*BackgroundPanel*/{
 		setSize(750,500);
 		setLayout(null);
 		
-		JTextPane txtpnMonth = new JTextPane();
-		txtpnMonth.setFont(new Font("Candara", Font.PLAIN, 14));
-		txtpnMonth.setEditable(false);
-		txtpnMonth.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		txtpnMonth.setOpaque(false);
-		txtpnMonth.setText("Jan\r\nFeb\r\nMar\r\nApr\r\nMay\r\nJun\r\nJul\r\nAug\r\nSep\r\nOct\r\nNov\r\nDec");
-		txtpnMonth.setBounds(241, 268, 49, 23);
-		add(txtpnMonth);
-		
 		rdbtnEveningPm = new JRadioButton("Evening (5 pm - 7 pm)");
 		rdbtnEveningPm.setOpaque(false);
 		rdbtnEveningPm.setBounds(178, 392, 148, 23);
@@ -97,6 +88,8 @@ public class SpaBooking extends BackgroundPanel /*BackgroundPanel*/{
 		add(spinner);
 		
 		JComboBox Month = new JComboBox();
+		Month.setFont(new Font("Candara", Font.PLAIN, 14));
+		Month.setModel(new DefaultComboBoxModel(new String[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}));
 		Month.setToolTipText("");
 		Month.setBounds(234, 268, 56, 25);
 		add(Month);
@@ -117,8 +110,8 @@ public class SpaBooking extends BackgroundPanel /*BackgroundPanel*/{
 		btnConfirm.setBounds(558, 465, 89, 23);
 		add(btnConfirm);
 		
-		JLabel lblSpaBooking = new JLabel("SPA BOOKING");
-		lblSpaBooking.setIcon(new ImageIcon(SpaBooking.class.getResource("/TaxiKaraokeSpa/img/Logo.png")));
+		JLabel lblSpaBooking = new JLabel("   SPA BOOKING");
+		lblSpaBooking.setIcon(new ImageIcon(SpaBooking.class.getResource("/images/Logo.png")));
 		lblSpaBooking.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		lblSpaBooking.setBounds(50, 26, 301, 121);
 		add(lblSpaBooking);
