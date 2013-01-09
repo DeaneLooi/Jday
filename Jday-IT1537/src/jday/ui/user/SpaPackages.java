@@ -23,6 +23,8 @@ import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.TitledBorder;
 
 import jday.util.BackgroundPanel;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.ListSelectionEvent;
 
 public class SpaPackages extends BackgroundPanel /*BackgroundPanel*/ {
 
@@ -77,6 +79,45 @@ public class SpaPackages extends BackgroundPanel /*BackgroundPanel*/ {
 		list_1.setBackground(SystemColor.menu);
 		
 		JList list = new JList();
+		list.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) {
+				if( list.getSelectedIndex()==0){
+					/*.setVisible(false);
+					.setVisible(false);
+					.setVisible(false);
+					.setVisible(false);
+					.setVisible(true);*/
+				}
+				if( list.getSelectedIndex()==1){
+					/*.setVisible(false);
+					.setVisible(false);
+					.setVisible(false);
+					.setVisible(false);
+					.setVisible(true);*/
+				}
+				if( list.getSelectedIndex()==2){
+					/*.setVisible(false);
+					.setVisible(false);
+					.setVisible(false);
+					.setVisible(false);
+					.setVisible(true);*/
+				}
+				if( list.getSelectedIndex()==3){
+					/*.setVisible(false);
+					.setVisible(false);
+					.setVisible(false);
+					.setVisible(false);
+					.setVisible(true);*/
+				}
+				if( list.getSelectedIndex()==0){
+					/*.setVisible(false);
+					.setVisible(false);
+					.setVisible(false);
+					.setVisible(false);
+					.setVisible(true);*/
+				}
+			}
+		});
 		list.setBounds(39, 190, 218, 136);
 		add(list);
 		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
@@ -114,7 +155,8 @@ public class SpaPackages extends BackgroundPanel /*BackgroundPanel*/ {
 		panel_1.add(txtpnHarmonisingTheBody);
 		
 		JLabel lblDescription = new JLabel("DESCRIPTION");
-		lblDescription.setForeground(Color.WHITE);
+		lblDescription.setBackground(Color.BLACK);
+		lblDescription.setForeground(new Color(0, 0, 0));
 		lblDescription.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
 		lblDescription.setBounds(144, 22, 103, 14);
 		panel_1.add(lblDescription);
