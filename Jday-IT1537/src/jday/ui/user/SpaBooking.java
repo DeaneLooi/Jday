@@ -19,12 +19,17 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 
 import jday.util.BackgroundPanel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
+import javax.swing.ButtonGroup;
 
 public class SpaBooking extends BackgroundPanel /*BackgroundPanel*/{
 	private JRadioButton rdbtnpm;
-	private JRadioButton rdbtnEveningPm;
 	private JRadioButton rdbtnNoonPm;
-	private JComboBox comboBoxPackages;
+	private JRadioButton rdbtnEveningPm;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
 	 * Create the panel.
@@ -44,16 +49,35 @@ public class SpaBooking extends BackgroundPanel /*BackgroundPanel*/{
 		setLayout(null);
 		
 		rdbtnEveningPm = new JRadioButton("Evening (5 pm - 7 pm)");
+		buttonGroup.add(rdbtnEveningPm);
+		rdbtnEveningPm.addPropertyChangeListener(new PropertyChangeListener() {
+			public void propertyChange(PropertyChangeEvent arg0) {
+			}
+		});
 		rdbtnEveningPm.setOpaque(false);
-		rdbtnEveningPm.setBounds(178, 392, 148, 23);
+		rdbtnEveningPm.setBounds(178, 387, 148, 23);
 		add(rdbtnEveningPm);
 		
 		rdbtnNoonPm = new JRadioButton("Noon (1 pm - 4 pm)");
+		buttonGroup.add(rdbtnNoonPm);
+		rdbtnNoonPm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		rdbtnNoonPm.setOpaque(false);
 		rdbtnNoonPm.setBounds(178, 357, 148, 23);
 		add(rdbtnNoonPm);
 		
 		rdbtnpm = new JRadioButton("AM (10 am - 12 pm)");
+		buttonGroup.add(rdbtnpm);
+		rdbtnpm.addPropertyChangeListener(new PropertyChangeListener() {
+			public void propertyChange(PropertyChangeEvent arg0) {
+			}
+		});
+		rdbtnpm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		rdbtnpm.setOpaque(false);
 		rdbtnpm.setBounds(178, 325, 148, 23);
 		add(rdbtnpm);
@@ -99,7 +123,7 @@ public class SpaBooking extends BackgroundPanel /*BackgroundPanel*/{
 		spinner_1.setBounds(295, 270, 56, 22);
 		add(spinner_1);
 		
-		comboBoxPackages = new JComboBox();
+		JComboBox comboBoxPackages = new JComboBox();
 		comboBoxPackages.setFont(new Font("Candara", Font.PLAIN, 14));
 		comboBoxPackages.setModel(new DefaultComboBoxModel(new String[] {"  JDay's Spa Packages", "  Balancing Spa Package", "  Healing Spa Package", "  Purifying Spa Package", "  Renewing Spa Package", "  JDAY Experience"}));
 		comboBoxPackages.setToolTipText("");

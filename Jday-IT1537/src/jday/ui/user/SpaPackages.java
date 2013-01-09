@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import javax.swing.AbstractListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -26,7 +27,11 @@ import jday.util.BackgroundPanel;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.ListSelectionEvent;
 
-public class SpaPackages extends BackgroundPanel /*BackgroundPanel*/ {
+public class SpaPackages extends BackgroundPanel {
+
+	protected static final JComponent txtpnHarmonisingTheBody = null;
+	protected static final JComponent txtpnCreateYourOwn = null;
+	protected static final JComponent txtpnBasedOnMalay = null;
 
 	/**
 	 * Create the panel.
@@ -71,54 +76,36 @@ public class SpaPackages extends BackgroundPanel /*BackgroundPanel*/ {
 				return values[index];
 			}
 		});
-		list_1.setBounds(39, 372, 218, 102);
+		list_1.setBounds(39, 339, 218, 73);
 		add(list_1);
 		list_1.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		list_1.setOpaque(false);
 		list_1.setFont(new Font("Candara", Font.PLAIN, 16));
 		list_1.setBackground(SystemColor.menu);
 		
-		JList list = new JList();
+		final JList list = new JList();
 		list.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
 				if( list.getSelectedIndex()==0){
-					/*.setVisible(false);
-					.setVisible(false);
-					.setVisible(false);
-					.setVisible(false);
-					.setVisible(true);*/
+					txtpnHarmonisingTheBody.setVisible(true);
+					txtpnBasedOnMalay.setVisible(false);
+					txtpnCreateYourOwn.setVisible(false);
+					
 				}
 				if( list.getSelectedIndex()==1){
-					/*.setVisible(false);
-					.setVisible(false);
-					.setVisible(false);
-					.setVisible(false);
-					.setVisible(true);*/
+					txtpnHarmonisingTheBody.setVisible(false);
+					txtpnBasedOnMalay.setVisible(true);
+					txtpnCreateYourOwn.setVisible(false);
 				}
 				if( list.getSelectedIndex()==2){
-					/*.setVisible(false);
-					.setVisible(false);
-					.setVisible(false);
-					.setVisible(false);
-					.setVisible(true);*/
+					txtpnHarmonisingTheBody.setVisible(false);
+					txtpnBasedOnMalay.setVisible(false);
+					txtpnCreateYourOwn.setVisible(true);
 				}
-				if( list.getSelectedIndex()==3){
-					/*.setVisible(false);
-					.setVisible(false);
-					.setVisible(false);
-					.setVisible(false);
-					.setVisible(true);*/
-				}
-				if( list.getSelectedIndex()==0){
-					/*.setVisible(false);
-					.setVisible(false);
-					.setVisible(false);
-					.setVisible(false);
-					.setVisible(true);*/
-				}
+				
 			}
 		});
-		list.setBounds(39, 190, 218, 136);
+		list.setBounds(39, 190, 218, 73);
 		add(list);
 		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		list.setFont(new Font("Candara", Font.PLAIN, 16));
@@ -126,7 +113,7 @@ public class SpaPackages extends BackgroundPanel /*BackgroundPanel*/ {
 		list.setOpaque(false);
 		list.setBackground(SystemColor.menu);
 		list.setModel(new AbstractListModel() {
-			String[] values = new String[] {"     Balancing Spa Package", "", "     Healing Spa Package", "", "     Purifying Spa Package", "", "     Renewing Spa Package", "", "     JDAY Experience"};
+			String[] values = new String[] {"     Balancing Spa Package", "", "     Healing Spa Package", "", "     JDAY Experience"};
 			public int getSize() {
 				return values.length;
 			}
@@ -137,12 +124,32 @@ public class SpaPackages extends BackgroundPanel /*BackgroundPanel*/ {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setOpaque(false);
-		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "", TitledBorder.CENTER, TitledBorder.TOP, null, new Color(255, 204, 255)));
+		panel_1.setBorder(null);
 		panel_1.setBounds(340, 88, 380, 305);
 		add(panel_1);
 		panel_1.setLayout(null);
 		
+		JLabel lblDescription = new JLabel("DESCRIPTION");
+		lblDescription.setBackground(Color.BLACK);
+		lblDescription.setForeground(new Color(0, 0, 0));
+		lblDescription.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
+		lblDescription.setBounds(144, 22, 103, 14);
+		panel_1.add(lblDescription);
+		
+		JTextPane txtpnBasedOnMalay = new JTextPane();
+		txtpnBasedOnMalay.setText("\r\nBased on Malay jamu philosophy, jamu herbal remedies and massages emphasise on healing from within. Be treated to traditional Indonesian and Malay spa therapies.\r\n\r\n \r\n2 hours 30 minutes: SGD 320.00 (exclusive of taxes)");
+		txtpnBasedOnMalay.setFont(new Font("Candara", Font.PLAIN, 15));
+		txtpnBasedOnMalay.setEditable(false);
+		txtpnBasedOnMalay.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		txtpnBasedOnMalay.setBackground(SystemColor.menu);
+		txtpnBasedOnMalay.setAlignmentY(5.0f);
+		txtpnBasedOnMalay.setAlignmentX(3.0f);
+		txtpnBasedOnMalay.setBounds(34, 58, 319, 224);
+		panel_1.add(txtpnBasedOnMalay);
+		
 		JTextPane txtpnHarmonisingTheBody = new JTextPane();
+		txtpnHarmonisingTheBody.setBounds(34, 58, 319, 224);
+		panel_1.add(txtpnHarmonisingTheBody);
 		txtpnHarmonisingTheBody.setEditable(false);
 		txtpnHarmonisingTheBody.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		txtpnHarmonisingTheBody.setBackground(SystemColor.menu);
@@ -151,15 +158,17 @@ public class SpaPackages extends BackgroundPanel /*BackgroundPanel*/ {
 		txtpnHarmonisingTheBody.setAlignmentY(5.0f);
 		txtpnHarmonisingTheBody.setFont(new Font("Candara", Font.PLAIN, 15));
 		txtpnHarmonisingTheBody.setText("\r\n\r\nHarmonising the body by unblocking the vital energy, qi, experience the powerful effects of Ginseng and feel the Balancing effects of this traditional Chinese based treatment.\r\n\r\n \r\n4 hours: SGD 460.00 (exclusive of taxes)");
-		txtpnHarmonisingTheBody.setBounds(34, 58, 319, 224);
-		panel_1.add(txtpnHarmonisingTheBody);
 		
-		JLabel lblDescription = new JLabel("DESCRIPTION");
-		lblDescription.setBackground(Color.BLACK);
-		lblDescription.setForeground(new Color(0, 0, 0));
-		lblDescription.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
-		lblDescription.setBounds(144, 22, 103, 14);
-		panel_1.add(lblDescription);
+		JTextPane txtpnCreateYourOwn = new JTextPane();
+		txtpnCreateYourOwn.setText("\r\nCreate your own Damai Experience from our a la carte menu. Choose from our a la carte menu your preferred body scrub and massage, and complete your holistic treatment with a healthy spa lunch at Oasis.\r\n\r\n \r\n2 hours 30 minutes: SGD 300.00 (exclusive of taxes)");
+		txtpnCreateYourOwn.setFont(new Font("Candara", Font.PLAIN, 15));
+		txtpnCreateYourOwn.setEditable(false);
+		txtpnCreateYourOwn.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		txtpnCreateYourOwn.setBackground(SystemColor.menu);
+		txtpnCreateYourOwn.setAlignmentY(5.0f);
+		txtpnCreateYourOwn.setAlignmentX(3.0f);
+		txtpnCreateYourOwn.setBounds(34, 58, 319, 224);
+		panel_1.add(txtpnCreateYourOwn);
 		
 		JLabel lblJdaysJourneyIndex = new JLabel("JDAY's Journey Index");
 		lblJdaysJourneyIndex.setForeground(Color.BLACK);
@@ -170,7 +179,7 @@ public class SpaPackages extends BackgroundPanel /*BackgroundPanel*/ {
 		JLabel lblJdaysCoupleJourney = new JLabel("JDAY's Couple Journey Index");
 		lblJdaysCoupleJourney.setForeground(Color.BLACK);
 		lblJdaysCoupleJourney.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
-		lblJdaysCoupleJourney.setBounds(25, 342, 220, 19);
+		lblJdaysCoupleJourney.setBounds(37, 296, 220, 19);
 		add(lblJdaysCoupleJourney);
 		
 		JLabel lblSpaPackages = new JLabel("   SPA PACKAGES\r\n");
