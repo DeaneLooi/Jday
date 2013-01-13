@@ -109,7 +109,7 @@ public class SpaPackages extends BackgroundPanel {
 		add(list);
 		list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		list.setFont(new Font("Candara", Font.PLAIN, 16));
-		list.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		list.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		list.setOpaque(false);
 		list.setBackground(SystemColor.menu);
 		list.setModel(new AbstractListModel() {

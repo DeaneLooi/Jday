@@ -131,6 +131,7 @@ public class SpaBooking extends BackgroundPanel /*BackgroundPanel*/{
 		add(comboBoxPackages);
 		
 		JButton btnConfirm = new JButton("Confirm");
+		btnConfirm.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnConfirm.setBounds(558, 465, 89, 23);
 		add(btnConfirm);
 		
