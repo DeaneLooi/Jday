@@ -25,11 +25,15 @@ import javax.swing.SwingConstants;
 import javax.swing.ButtonGroup;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-	private final Action action = new SwingAction();
-
+	protected static final JComponent txtpnRoomTypeCorporate = null;
+	protected static final JComponent txtpnRoomTypeFamily = null;
+	protected static final JComponent txtpnRoomTypeFriends = null;
+	
 	/**
 	 * Create the panel.
 	 */
@@ -70,14 +74,10 @@ public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 		add(button);
 
 		final JTextPane txtpnRoomTypeCorporate = new JTextPane();
-		txtpnRoomTypeCorporate
-				.setText("\r\nRoom Type\t: \tFamily Room\r\nNo. of Person :\t4 - 6 pax\r\n\r\nJDAY Lunch :  11 pm - 2 pm\r\n$13++ or  $18++\r\n2 set Lunch + 3 Soft Drinks/Hot Drinks\r\n\r\nJDAY Happy : 2 pm - 7 pm\r\n$10++ or $14++\r\n2 Standard Drinks Per Pax\r\n\r\nJDAY Dinner : 6 pm - 10 pm\r\n$30++ or $54 ++\r\n4 set Dinner + 4 Standard Drink");
+		txtpnRoomTypeCorporate.setText("\r\nRoom Type\t: \tFamily Room\r\nNo. of Person :\t4 - 6 pax\r\n\r\nJDAY Lunch :  11 pm - 2 pm\r\n$13++ or  $18++\r\n2 set Lunch + 3 Soft Drinks/Hot Drinks\r\n\r\nJDAY Happy : 2 pm - 7 pm\r\n$10++ or $14++\r\n2 Standard Drinks Per Pax\r\n\r\nJDAY Dinner : 6 pm - 10 pm\r\n$30++ or $54 ++\r\n4 set Dinner + 4 Standard Drink");
 		txtpnRoomTypeCorporate.setFont(new Font("Candara", Font.PLAIN, 15));
 		txtpnRoomTypeCorporate.setEditable(false);
-		txtpnRoomTypeCorporate.setBorder(new SoftBevelBorder(
-				BevelBorder.LOWERED,
-
-				null, null, null, null));
+		txtpnRoomTypeCorporate.setBorder(new SoftBevelBorder(BevelBorder.LOWERED,null, null, null, null));
 		txtpnRoomTypeCorporate.setBackground(SystemColor.menu);
 		txtpnRoomTypeCorporate.setAlignmentY(5.0f);
 		txtpnRoomTypeCorporate.setAlignmentX(3.0f);
@@ -85,12 +85,10 @@ public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 		add(txtpnRoomTypeCorporate);
 
 		final JTextPane txtpnRoomTypeFamily = new JTextPane();
-		txtpnRoomTypeFamily
-				.setText("\r\nRoom Type\t: \tCorporate Room\r\nNo. of Person :\t5 - 7 pax\r\n\r\nJDAY Lunch :  11 pm - 2 pm\r\n$15++ or  $20++\r\n3 set Lunch + 3 Soft Drinks/Hot Drinks\r\n\r\nJDAY Happy : 2 pm - 7 pm\r\n$14++ or $19++\r\n4 Standard Drinks Per Pax\r\n\r\nJDAY Dinner : 6 pm - 10 pm\r\n$30++ or $54 ++\r\n4 set Dinner + 4 Standard Drink");
+		txtpnRoomTypeFamily.setText("\r\nRoom Type\t: \tCorporate Room\r\nNo. of Person :\t5 - 7 pax\r\n\r\nJDAY Lunch :  11 pm - 2 pm\r\n$15++ or  $20++\r\n3 set Lunch + 3 Soft Drinks/Hot Drinks\r\n\r\nJDAY Happy : 2 pm - 7 pm\r\n$14++ or $19++\r\n4 Standard Drinks Per Pax\r\n\r\nJDAY Dinner : 6 pm - 10 pm\r\n$30++ or $54 ++\r\n4 set Dinner + 4 Standard Drink");
 		txtpnRoomTypeFamily.setFont(new Font("Candara", Font.PLAIN, 15));
 		txtpnRoomTypeFamily.setEditable(false);
-		txtpnRoomTypeFamily.setBorder(new SoftBevelBorder(BevelBorder.LOWERED,
-				null, null, null, null));
+		txtpnRoomTypeFamily.setBorder(new SoftBevelBorder(BevelBorder.LOWERED,null, null, null, null));
 		txtpnRoomTypeFamily.setBackground(SystemColor.menu);
 		txtpnRoomTypeFamily.setAlignmentY(5.0f);
 		txtpnRoomTypeFamily.setAlignmentX(3.0f);
@@ -98,57 +96,70 @@ public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 		add(txtpnRoomTypeFamily);
 
 		final JTextPane txtpnRoomTypeFriends = new JTextPane();
-		txtpnRoomTypeFriends
-				.setText("\r\nRoom Type\t: \tFriends Room\r\nNo. of Person :\t2 - 4 pax\r\n\r\nJDAY Lunch :  11 pm - 2 pm\r\n$9++ or  $12++\r\n1 set Lunch + 1 Soft Drinks/Hot Drinks\r\n\r\nJDAY Happy : 2 pm - 7 pm\r\n$13++ or $16++\r\n2 Standard Drinks Per Pax\r\n\r\nJDAY Dinner : 6 pm - 10 pm\r\n$19++ or $23 ++\r\n1 set Dinner + 1 Standard Drink");
+		txtpnRoomTypeFriends.setText("\r\nRoom Type\t: \tFriends Room\r\nNo. of Person :\t2 - 4 pax\r\n\r\nJDAY Lunch :  11 pm - 2 pm\r\n$9++ or  $12++\r\n1 set Lunch + 1 Soft Drinks/Hot Drinks\r\n\r\nJDAY Happy : 2 pm - 7 pm\r\n$13++ or $16++\r\n2 Standard Drinks Per Pax\r\n\r\nJDAY Dinner : 6 pm - 10 pm\r\n$19++ or $23 ++\r\n1 set Dinner + 1 Standard Drink");
 		txtpnRoomTypeFriends.setFont(new Font("Candara", Font.PLAIN, 15));
 		txtpnRoomTypeFriends.setEditable(false);
-		txtpnRoomTypeFriends.setBorder(new SoftBevelBorder(BevelBorder.LOWERED,
-				null, null, null, null));
+		txtpnRoomTypeFriends.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		txtpnRoomTypeFriends.setBackground(SystemColor.menu);
 		txtpnRoomTypeFriends.setAlignmentY(5.0f);
 		txtpnRoomTypeFriends.setAlignmentX(3.0f);
 		txtpnRoomTypeFriends.setBounds(12, 125, 286, 312);
 		add(txtpnRoomTypeFriends);
 
-		JRadioButton rdbtnCorporateRoom = new JRadioButton(
-				"            Corporate Room");
-		rdbtnCorporateRoom.setCursor(Cursor
-				.getPredefinedCursor(Cursor.HAND_CURSOR));
+		JRadioButton rdbtnCorporateRoom = new JRadioButton("            Corporate Room");
+		rdbtnCorporateRoom.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtpnRoomTypeCorporate.setVisible(true);
+				txtpnRoomTypeFamily.setVisible(false);
+				txtpnRoomTypeFriends.setVisible(false);
+			}
+		});
+		rdbtnCorporateRoom.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		buttonGroup.add(rdbtnCorporateRoom);
 		rdbtnCorporateRoom.setFont(new Font("Candara", Font.PLAIN, 16));
 		rdbtnCorporateRoom.setOpaque(false);
-		rdbtnCorporateRoom.setIcon(new ImageIcon(KaraokeRegular.class
-				.getResource("/images/BusinessRoom.png")));
+		rdbtnCorporateRoom.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/images/BusinessRoom.png")));
 		rdbtnCorporateRoom.setBounds(329, 18, 385, 150);
 		add(rdbtnCorporateRoom);
 
-		JRadioButton rdbtnFamilyRoom = new JRadioButton(
-				"           Family Room");
-		rdbtnFamilyRoom.setCursor(Cursor
-				.getPredefinedCursor(Cursor.HAND_CURSOR));
+		JRadioButton rdbtnFamilyRoom = new JRadioButton("           Family Room");
+		rdbtnFamilyRoom.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtpnRoomTypeCorporate.setVisible(false);
+				txtpnRoomTypeFamily.setVisible(true);
+				txtpnRoomTypeFriends.setVisible(false);
+			}
+		});
+		rdbtnFamilyRoom.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		buttonGroup.add(rdbtnFamilyRoom);
 		rdbtnFamilyRoom.setOpaque(false);
-		rdbtnFamilyRoom.setIcon(new ImageIcon(KaraokeRegular.class
-				.getResource("/images/FamilyRoom.png")));
+		rdbtnFamilyRoom.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/images/FamilyRoom.png")));
 		rdbtnFamilyRoom.setFont(new Font("Candara", Font.PLAIN, 16));
 		rdbtnFamilyRoom.setBounds(329, 178, 385, 150);
 		add(rdbtnFamilyRoom);
 
-		JRadioButton rdbtnFriendsRoom = new JRadioButton(
-				"           Friends Room");
-		rdbtnFriendsRoom.setCursor(Cursor
-				.getPredefinedCursor(Cursor.HAND_CURSOR));
+		JRadioButton rdbtnFriendsRoom = new JRadioButton("           Friends Room");
+		rdbtnFriendsRoom.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtpnRoomTypeCorporate.setVisible(false);
+				txtpnRoomTypeFamily.setVisible(false);
+				txtpnRoomTypeFriends.setVisible(true);
+			}
+		});
+		rdbtnFriendsRoom.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		buttonGroup.add(rdbtnFriendsRoom);
-		rdbtnFriendsRoom.setIcon(new ImageIcon(KaraokeRegular.class
-				.getResource("/images/FriendsRoom.png")));
+		rdbtnFriendsRoom.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/images/FriendsRoom.png")));
 		rdbtnFriendsRoom.setFont(new Font("Candara", Font.PLAIN, 16));
 		rdbtnFriendsRoom.setOpaque(false);
 		rdbtnFriendsRoom.setBounds(329, 343, 385, 144);
 		add(rdbtnFriendsRoom);
 
 		// changing info
-		final JRadioButton rdbtn = new JRadioButton();
-		rdbtn.addRdbtnListener(new rdbtnSelectionListener() {
+		/*final JRadioButton rdbtn = new JRadioButton();
+		rdbtn.addSelectionListener(new SelectionListener() {
 			public void valueChanged(rdbtnSelectionEvent e) {
 
 				if (rdbtn.getSelectedIndex() == 0) {
@@ -167,7 +178,7 @@ public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 					txtpnRoomTypeFriends.setVisible(true);
 				}
 			}
-		});
+		});*/
 
 	}
 
