@@ -70,7 +70,7 @@ public class AUpdate2 extends BackgroundPanel {
 				
 			}
 		});
-		label.setIcon(new ImageIcon(ARegister.class.getResource("/pic/90logo.png")));
+		label.setIcon(new ImageIcon(AUpdate2.class.getResource("/images/90logo.png")));
 		label.setBounds(10, 11, 94, 102);
 		add(label);
 		
@@ -122,3 +122,12 @@ public class AUpdate2 extends BackgroundPanel {
 
 	}
 }
+
+
+/* JPanel panel = new AUpdate2(myFrame);
+			myFrame.getContentPane().removeAll();
+			myFrame.getContentPane().add(panel);
+			myFrame.getContentPane().validate();
+			myFrame.getContentPane().repaint();
+	To change panel		
+*/
