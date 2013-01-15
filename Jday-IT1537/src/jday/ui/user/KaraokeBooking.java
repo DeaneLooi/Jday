@@ -118,7 +118,7 @@ public class KaraokeBooking extends BackgroundPanel /*BackgroundPanel*/{
 		add(btnConfirm);
 		
 		JLabel lblSpaBooking = new JLabel("KARAOKE BOOKING");
-		lblSpaBooking.setIcon(new ImageIcon(KaraokeBooking.class.getResource("/TaxiKaraokeSpa/img/microphone.png")));
+		lblSpaBooking.setIcon(new ImageIcon(KaraokeBooking.class.getResource("/images/microphone.png")));
 		lblSpaBooking.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		lblSpaBooking.setBounds(35, 13, 297, 155);
 		add(lblSpaBooking);

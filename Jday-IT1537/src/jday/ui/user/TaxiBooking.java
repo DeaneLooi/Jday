@@ -14,6 +14,7 @@ import java.awt.event.MouseEvent;
 import java.awt.Cursor;
 import javax.swing.UIManager;
 import java.awt.Dimension;
+import java.io.IOException;
 
 import jday.util.BackgroundPanel;
 
@@ -39,17 +40,73 @@ public class TaxiBooking  extends BackgroundPanel /*BackgroundPanel*/ {
 		setLayout(null);
 		
 		JLabel lblImgComfort = new JLabel("");
-		lblImgComfort.setIcon(new ImageIcon(TaxiBooking.class.getResource("/TaxiKaraokeSpa/img/comfortCity.jpg")));
+
+		
+		JLabel lblComfortDelgroWeb = new JLabel("Comfort Delgro");
+		lblComfortDelgroWeb.setFocusable(false);
+		lblComfortDelgroWeb.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lblComfortDelgroWeb.setForeground(new Color(51, 51, 255));
+		lblComfortDelgroWeb.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				try {
+					Runtime.getRuntime().exec("C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe http://www.cdgtaxi.com.sg/commuters_service_rates.mvn");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		JLabel lblSmrt_1 = new JLabel("SMRT");
+		lblSmrt_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lblSmrt_1.setForeground(new Color(51, 51, 255));
+		lblSmrt_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				try {
+					Runtime.getRuntime().exec("C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe http://www.smrt.com.sg/Taxis/FaresSurcharges.aspx");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		JLabel lblPremierTaxis_1 = new JLabel("Premier Taxis");
+		lblPremierTaxis_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		lblPremierTaxis_1.setForeground(new Color(51, 51, 255));
+		lblPremierTaxis_1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				try {
+					Runtime.getRuntime().exec("C:\\Program Files (x86)\\Internet Explorer\\iexplore.exe http://www.premiertaxi.com/our_commuters/taxi_fare.asp");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		lblPremierTaxis_1.setFont(new Font("Candara", Font.BOLD | Font.ITALIC, 13));
+		lblPremierTaxis_1.setBounds(607, 175, 84, 14);
+		add(lblPremierTaxis_1);
+		lblSmrt_1.setFont(new Font("Candara", Font.BOLD | Font.ITALIC, 13));
+		lblSmrt_1.setBounds(414, 175, 38, 14);
+		add(lblSmrt_1);
+		lblComfortDelgroWeb.setFont(new Font("Candara", Font.BOLD | Font.ITALIC, 13));
+		lblComfortDelgroWeb.setBounds(186, 175, 106, 14);
+		add(lblComfortDelgroWeb);
+		lblImgComfort.setIcon(new ImageIcon(TaxiBooking.class.getResource("/images/comfortCity.jpg")));
 		lblImgComfort.setBounds(131, 26, 221, 112);
 		add(lblImgComfort);
 		
 		JLabel lblImgSMRT = new JLabel("");
 		lblImgSMRT.setBounds(334, 26, 204, 112);
-		lblImgSMRT.setIcon(new ImageIcon(TaxiBooking.class.getResource("/TaxiKaraokeSpa/img/SMRT.jpg")));
+		lblImgSMRT.setIcon(new ImageIcon(TaxiBooking.class.getResource("/images/SMRT.jpg")));
 		add(lblImgSMRT);
 		
 		JLabel lblImgPremier = new JLabel("");
-		lblImgPremier.setIcon(new ImageIcon(TaxiBooking.class.getResource("/TaxiKaraokeSpa/img/PremierTaxi.jpg")));
+		lblImgPremier.setIcon(new ImageIcon(TaxiBooking.class.getResource("/images/PremierTaxi.jpg")));
 		lblImgPremier.setBounds(536, 26, 190, 112);
 		add(lblImgPremier);
 		
@@ -120,6 +177,9 @@ public class TaxiBooking  extends BackgroundPanel /*BackgroundPanel*/ {
 		add(label_10);
 		
 		table = new JTable();
+		table.setEnabled(false);
+		table.setRequestFocusEnabled(false);
+		table.setRowSelectionAllowed(false);
 		table.setFont(new Font("Candara", Font.PLAIN, 12));
 		table.setShowGrid(false);
 		table.setShowHorizontalLines(false);
@@ -129,7 +189,7 @@ public class TaxiBooking  extends BackgroundPanel /*BackgroundPanel*/ {
 			new Object[][] {
 				{null, null, null},
 				{"                          6552 1111", "                         6555 3333", "                           6363 6888"},
-				{"    www.cdgtaxi.com.sg/commuters_service_rates.mvn", "www.smrt.com.sg/Taxis/FaresSurcharges.aspx", "www.premiertaxi.com/our_commuters/taxi_fare.asp"},
+				{"", "", ""},
 				{null, null, null},
 				{null, null, null},
 				{"     Nissan Cedric", "    Nissan Cedric ", "    Nissan Cedric"},
@@ -166,13 +226,7 @@ public class TaxiBooking  extends BackgroundPanel /*BackgroundPanel*/ {
 		JLabel lblComfortDelgro = new JLabel("Comfort Delgro");
 		lblComfortDelgro.setForeground(UIManager.getColor("Menu.selectionBackground"));
 		lblComfortDelgro.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		lblComfortDelgro.addMouseListener(new MouseAdapter() {
-			//website pop-up
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				
-			}
-		});
+		
 		lblComfortDelgro.setFont(new Font("Candara", Font.BOLD, 12));
 		lblComfortDelgro.setBounds(188, 181, 94, 14);
 		add(lblComfortDelgro);
@@ -184,5 +238,4 @@ public class TaxiBooking  extends BackgroundPanel /*BackgroundPanel*/ {
 		add(lblSmrt);
 
 	}
-
 }

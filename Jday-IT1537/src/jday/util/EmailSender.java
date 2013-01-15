@@ -1,6 +1,6 @@
 package jday.util;
 
-public class SMSSender {
+public class EmailSender {
 
 	public void sendMessage(String msg) {
 		System.out.println(msg);

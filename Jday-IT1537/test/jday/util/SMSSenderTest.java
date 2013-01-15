@@ -8,7 +8,7 @@ public class SMSSenderTest {
 
 	@Test
 	public void testSendMessage() {
-		SMSSender sender = new SMSSender();
+		EmailSender sender = new EmailSender();
 		sender.sendMessage("Hello this is me");
 	}
 

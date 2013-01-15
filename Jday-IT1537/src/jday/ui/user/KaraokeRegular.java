@@ -9,17 +9,31 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import jday.util.BackgroundPanel;
+import javax.swing.JRadioButton;
+import javax.swing.SwingConstants;
+import javax.swing.ButtonGroup;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-public class KaraokeRegular extends BackgroundPanel /*BackgroundPanel*/{
-
+public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
+	private final ButtonGroup buttonGroup = new ButtonGroup();
+	protected static final JComponent txtpnRoomTypeCorporate = null;
+	protected static final JComponent txtpnRoomTypeFamily = null;
+	protected static final JComponent txtpnRoomTypeFriends = null;
+	
 	/**
 	 * Create the panel.
 	 */
@@ -27,28 +41,23 @@ public class KaraokeRegular extends BackgroundPanel /*BackgroundPanel*/{
 		super();
 		initialize();
 	}
-	
-	public KaraokeRegular(JFrame f){
+
+	public KaraokeRegular(JFrame f) {
 		this();
 		myFrame = f;
 	}
-	
-	private void initialize(){
+
+	private void initialize() {
 		setSize(new Dimension(750, 500));
 		setLayout(null);
-		
+
 		JLabel lblKaraokeRooms = new JLabel("KARAOKE ROOMS");
-		lblKaraokeRooms.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/TaxiKaraokeSpa/img/microphone.png")));
+		lblKaraokeRooms.setIcon(new ImageIcon(KaraokeRegular.class
+				.getResource("/images/microphone.png")));
 		lblKaraokeRooms.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		lblKaraokeRooms.setBounds(12, -14, 286, 155);
 		add(lblKaraokeRooms);
-		
-		JLabel lblNewLabel_1 = new JLabel("              Friends Room");
-		lblNewLabel_1.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblNewLabel_1.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/TaxiKaraokeSpa/img/FriendsRoom.png")));
-		lblNewLabel_1.setBounds(329, 175, 375, 155);
-		add(lblNewLabel_1);
-		
+
 		JButton button = new JButton("Book Now!");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -63,29 +72,114 @@ public class KaraokeRegular extends BackgroundPanel /*BackgroundPanel*/{
 		button.setOpaque(false);
 		button.setBounds(116, 445, 100, 42);
 		add(button);
-		
-		JTextPane txtpnRoomType = new JTextPane();
-		txtpnRoomType.setText("\r\nRoom Type\t: \tFriends Room\r\nNo. of Person :\t2 - 4 pax\r\n\r\nJDAY Lunch :  11 pm - 2 pm\r\n$9++ or  $12++\r\n1 set Lunch + 1 Soft Drinks/Hot Drinks\r\n\r\nJDAY Happy : 2 pm - 7 pm\r\n$13++ or $16++\r\n2 Standard Drinks Per Pax\r\n\r\nJDAY Dinner : 6 pm - 10 pm\r\n$19++ or $23 ++\r\n1 set Dinner + 1 Standard Drink");
-		txtpnRoomType.setFont(new Font("Candara", Font.PLAIN, 15));
-		txtpnRoomType.setEditable(false);
-		txtpnRoomType.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		txtpnRoomType.setBackground(SystemColor.menu);
-		txtpnRoomType.setAlignmentY(5.0f);
-		txtpnRoomType.setAlignmentX(3.0f);
-		txtpnRoomType.setBounds(12, 125, 286, 312);
-		add(txtpnRoomType);
-		
-		JLabel lblFamilyroom = new JLabel("              Family Room");
-		lblFamilyroom.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblFamilyroom.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/TaxiKaraokeSpa/img/FamilyRoom.png")));
-		lblFamilyroom.setBounds(329, 327, 385, 173);
-		add(lblFamilyroom);
-		
-		JLabel lblBusinessRoom = new JLabel("               Corporate Room");
-		lblBusinessRoom.setFont(new Font("Candara", Font.PLAIN, 16));
-		lblBusinessRoom.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/TaxiKaraokeSpa/img/BusinessRoom.png")));
-		lblBusinessRoom.setBounds(329, 22, 375, 141);
-		add(lblBusinessRoom);
+
+		final JTextPane txtpnRoomTypeCorporate = new JTextPane();
+		txtpnRoomTypeCorporate.setText("\r\nRoom Type\t: \tFamily Room\r\nNo. of Person :\t4 - 6 pax\r\n\r\nJDAY Lunch :  11 pm - 2 pm\r\n$13++ or  $18++\r\n2 set Lunch + 3 Soft Drinks/Hot Drinks\r\n\r\nJDAY Happy : 2 pm - 7 pm\r\n$10++ or $14++\r\n2 Standard Drinks Per Pax\r\n\r\nJDAY Dinner : 6 pm - 10 pm\r\n$30++ or $54 ++\r\n4 set Dinner + 4 Standard Drink");
+		txtpnRoomTypeCorporate.setFont(new Font("Candara", Font.PLAIN, 15));
+		txtpnRoomTypeCorporate.setEditable(false);
+		txtpnRoomTypeCorporate.setBorder(new SoftBevelBorder(BevelBorder.LOWERED,null, null, null, null));
+		txtpnRoomTypeCorporate.setBackground(SystemColor.menu);
+		txtpnRoomTypeCorporate.setAlignmentY(5.0f);
+		txtpnRoomTypeCorporate.setAlignmentX(3.0f);
+		txtpnRoomTypeCorporate.setBounds(12, 125, 286, 312);
+		add(txtpnRoomTypeCorporate);
+
+		final JTextPane txtpnRoomTypeFamily = new JTextPane();
+		txtpnRoomTypeFamily.setText("\r\nRoom Type\t: \tCorporate Room\r\nNo. of Person :\t5 - 7 pax\r\n\r\nJDAY Lunch :  11 pm - 2 pm\r\n$15++ or  $20++\r\n3 set Lunch + 3 Soft Drinks/Hot Drinks\r\n\r\nJDAY Happy : 2 pm - 7 pm\r\n$14++ or $19++\r\n4 Standard Drinks Per Pax\r\n\r\nJDAY Dinner : 6 pm - 10 pm\r\n$30++ or $54 ++\r\n4 set Dinner + 4 Standard Drink");
+		txtpnRoomTypeFamily.setFont(new Font("Candara", Font.PLAIN, 15));
+		txtpnRoomTypeFamily.setEditable(false);
+		txtpnRoomTypeFamily.setBorder(new SoftBevelBorder(BevelBorder.LOWERED,null, null, null, null));
+		txtpnRoomTypeFamily.setBackground(SystemColor.menu);
+		txtpnRoomTypeFamily.setAlignmentY(5.0f);
+		txtpnRoomTypeFamily.setAlignmentX(3.0f);
+		txtpnRoomTypeFamily.setBounds(12, 125, 286, 312);
+		add(txtpnRoomTypeFamily);
+
+		final JTextPane txtpnRoomTypeFriends = new JTextPane();
+		txtpnRoomTypeFriends.setText("\r\nRoom Type\t: \tFriends Room\r\nNo. of Person :\t2 - 4 pax\r\n\r\nJDAY Lunch :  11 pm - 2 pm\r\n$9++ or  $12++\r\n1 set Lunch + 1 Soft Drinks/Hot Drinks\r\n\r\nJDAY Happy : 2 pm - 7 pm\r\n$13++ or $16++\r\n2 Standard Drinks Per Pax\r\n\r\nJDAY Dinner : 6 pm - 10 pm\r\n$19++ or $23 ++\r\n1 set Dinner + 1 Standard Drink");
+		txtpnRoomTypeFriends.setFont(new Font("Candara", Font.PLAIN, 15));
+		txtpnRoomTypeFriends.setEditable(false);
+		txtpnRoomTypeFriends.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		txtpnRoomTypeFriends.setBackground(SystemColor.menu);
+		txtpnRoomTypeFriends.setAlignmentY(5.0f);
+		txtpnRoomTypeFriends.setAlignmentX(3.0f);
+		txtpnRoomTypeFriends.setBounds(12, 125, 286, 312);
+		add(txtpnRoomTypeFriends);
+
+		JRadioButton rdbtnCorporateRoom = new JRadioButton("            Corporate Room");
+		rdbtnCorporateRoom.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtpnRoomTypeCorporate.setVisible(true);
+				txtpnRoomTypeFamily.setVisible(false);
+				txtpnRoomTypeFriends.setVisible(false);
+			}
+		});
+		rdbtnCorporateRoom.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		buttonGroup.add(rdbtnCorporateRoom);
+		rdbtnCorporateRoom.setFont(new Font("Candara", Font.PLAIN, 16));
+		rdbtnCorporateRoom.setOpaque(false);
+		rdbtnCorporateRoom.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/images/BusinessRoom.png")));
+		rdbtnCorporateRoom.setBounds(329, 18, 385, 150);
+		add(rdbtnCorporateRoom);
+
+		JRadioButton rdbtnFamilyRoom = new JRadioButton("           Family Room");
+		rdbtnFamilyRoom.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtpnRoomTypeCorporate.setVisible(false);
+				txtpnRoomTypeFamily.setVisible(true);
+				txtpnRoomTypeFriends.setVisible(false);
+			}
+		});
+		rdbtnFamilyRoom.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		buttonGroup.add(rdbtnFamilyRoom);
+		rdbtnFamilyRoom.setOpaque(false);
+		rdbtnFamilyRoom.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/images/FamilyRoom.png")));
+		rdbtnFamilyRoom.setFont(new Font("Candara", Font.PLAIN, 16));
+		rdbtnFamilyRoom.setBounds(329, 178, 385, 150);
+		add(rdbtnFamilyRoom);
+
+		JRadioButton rdbtnFriendsRoom = new JRadioButton("           Friends Room");
+		rdbtnFriendsRoom.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtpnRoomTypeCorporate.setVisible(false);
+				txtpnRoomTypeFamily.setVisible(false);
+				txtpnRoomTypeFriends.setVisible(true);
+			}
+		});
+		rdbtnFriendsRoom.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		buttonGroup.add(rdbtnFriendsRoom);
+		rdbtnFriendsRoom.setIcon(new ImageIcon(KaraokeRegular.class.getResource("/images/FriendsRoom.png")));
+		rdbtnFriendsRoom.setFont(new Font("Candara", Font.PLAIN, 16));
+		rdbtnFriendsRoom.setOpaque(false);
+		rdbtnFriendsRoom.setBounds(329, 343, 385, 144);
+		add(rdbtnFriendsRoom);
+
+		// changing info
+		/*final JRadioButton rdbtn = new JRadioButton();
+		rdbtn.addSelectionListener(new SelectionListener() {
+			public void valueChanged(rdbtnSelectionEvent e) {
+
+				if (rdbtn.getSelectedIndex() == 0) {
+					txtpnRoomTypeCorporate.setVisible(true);
+					txtpnRoomTypeFamily.setVisible(false);
+					txtpnRoomTypeFriends.setVisible(false);
+				}
+				if (rdbtn.getSelectedIndex() == 1) {
+					txtpnRoomTypeCorporate.setVisible(false);
+					txtpnRoomTypeFamily.setVisible(true);
+					txtpnRoomTypeFriends.setVisible(false);
+				}
+				if (rdbtn.getSelectedIndex() == 2) {
+					txtpnRoomTypeCorporate.setVisible(false);
+					txtpnRoomTypeFamily.setVisible(false);
+					txtpnRoomTypeFriends.setVisible(true);
+				}
+			}
+		});*/
 
 	}
+
 }

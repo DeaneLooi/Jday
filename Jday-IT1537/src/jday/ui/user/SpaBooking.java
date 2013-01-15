@@ -19,12 +19,17 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 
 import jday.util.BackgroundPanel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeEvent;
+import javax.swing.ButtonGroup;
 
 public class SpaBooking extends BackgroundPanel /*BackgroundPanel*/{
 	private JRadioButton rdbtnpm;
-	private JRadioButton rdbtnEveningPm;
 	private JRadioButton rdbtnNoonPm;
-	private JComboBox comboBoxPackages;
+	private JRadioButton rdbtnEveningPm;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
 	 * Create the panel.
@@ -43,26 +48,36 @@ public class SpaBooking extends BackgroundPanel /*BackgroundPanel*/{
 		setSize(750,500);
 		setLayout(null);
 		
-		JTextPane txtpnMonth = new JTextPane();
-		txtpnMonth.setFont(new Font("Candara", Font.PLAIN, 14));
-		txtpnMonth.setEditable(false);
-		txtpnMonth.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		txtpnMonth.setOpaque(false);
-		txtpnMonth.setText("Jan\r\nFeb\r\nMar\r\nApr\r\nMay\r\nJun\r\nJul\r\nAug\r\nSep\r\nOct\r\nNov\r\nDec");
-		txtpnMonth.setBounds(241, 268, 49, 23);
-		add(txtpnMonth);
-		
 		rdbtnEveningPm = new JRadioButton("Evening (5 pm - 7 pm)");
+		buttonGroup.add(rdbtnEveningPm);
+		rdbtnEveningPm.addPropertyChangeListener(new PropertyChangeListener() {
+			public void propertyChange(PropertyChangeEvent arg0) {
+			}
+		});
 		rdbtnEveningPm.setOpaque(false);
-		rdbtnEveningPm.setBounds(178, 392, 148, 23);
+		rdbtnEveningPm.setBounds(178, 387, 148, 23);
 		add(rdbtnEveningPm);
 		
 		rdbtnNoonPm = new JRadioButton("Noon (1 pm - 4 pm)");
+		buttonGroup.add(rdbtnNoonPm);
+		rdbtnNoonPm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		rdbtnNoonPm.setOpaque(false);
 		rdbtnNoonPm.setBounds(178, 357, 148, 23);
 		add(rdbtnNoonPm);
 		
 		rdbtnpm = new JRadioButton("AM (10 am - 12 pm)");
+		buttonGroup.add(rdbtnpm);
+		rdbtnpm.addPropertyChangeListener(new PropertyChangeListener() {
+			public void propertyChange(PropertyChangeEvent arg0) {
+			}
+		});
+		rdbtnpm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		rdbtnpm.setOpaque(false);
 		rdbtnpm.setBounds(178, 325, 148, 23);
 		add(rdbtnpm);
@@ -97,6 +112,8 @@ public class SpaBooking extends BackgroundPanel /*BackgroundPanel*/{
 		add(spinner);
 		
 		JComboBox Month = new JComboBox();
+		Month.setFont(new Font("Candara", Font.PLAIN, 14));
+		Month.setModel(new DefaultComboBoxModel(new String[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}));
 		Month.setToolTipText("");
 		Month.setBounds(234, 268, 56, 25);
 		add(Month);
@@ -106,7 +123,7 @@ public class SpaBooking extends BackgroundPanel /*BackgroundPanel*/{
 		spinner_1.setBounds(295, 270, 56, 22);
 		add(spinner_1);
 		
-		comboBoxPackages = new JComboBox();
+		JComboBox comboBoxPackages = new JComboBox();
 		comboBoxPackages.setFont(new Font("Candara", Font.PLAIN, 14));
 		comboBoxPackages.setModel(new DefaultComboBoxModel(new String[] {"  JDay's Spa Packages", "  Balancing Spa Package", "  Healing Spa Package", "  Purifying Spa Package", "  Renewing Spa Package", "  JDAY Experience"}));
 		comboBoxPackages.setToolTipText("");
@@ -114,11 +131,12 @@ public class SpaBooking extends BackgroundPanel /*BackgroundPanel*/{
 		add(comboBoxPackages);
 		
 		JButton btnConfirm = new JButton("Confirm");
+		btnConfirm.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnConfirm.setBounds(558, 465, 89, 23);
 		add(btnConfirm);
 		
-		JLabel lblSpaBooking = new JLabel("SPA BOOKING");
-		lblSpaBooking.setIcon(new ImageIcon(SpaBooking.class.getResource("/TaxiKaraokeSpa/img/Logo.png")));
+		JLabel lblSpaBooking = new JLabel("   SPA BOOKING");
+		lblSpaBooking.setIcon(new ImageIcon(SpaBooking.class.getResource("/images/Logo.png")));
 		lblSpaBooking.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		lblSpaBooking.setBounds(50, 26, 301, 121);
 		add(lblSpaBooking);
