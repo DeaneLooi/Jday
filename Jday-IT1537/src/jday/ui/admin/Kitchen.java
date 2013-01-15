@@ -18,6 +18,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 import jday.util.BackgroundPanel;
+import javax.swing.JToggleButton;
 
 public class Kitchen extends BackgroundPanel {
 	private JTable table;
@@ -50,6 +51,10 @@ public class Kitchen extends BackgroundPanel {
 		panel.setBounds(-6, -16, 762, 523);
 		add(panel);
 		panel.setLayout(null);
+		
+		JToggleButton tglbtnNewToggleButton = new JToggleButton("Pending");
+		tglbtnNewToggleButton.setBounds(540, 314, 121, 23);
+		panel.add(tglbtnNewToggleButton);
 		
 		JLabel lblAddress = new JLabel("Status");
 		lblAddress.setFont(new Font("Tahoma", Font.BOLD, 11));

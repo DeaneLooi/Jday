@@ -76,16 +76,16 @@ public class SpaPackages extends BackgroundPanel {
 		label.setBounds(461, 130, 103, 14);
 		add(label);
 		
-		final JTextPane textPane_1 = new JTextPane();
-		textPane_1.setText("\r\nHarmonising the body by unblocking the vital energy, qi, experience the powerful effects of Ginseng and feel the Balancing effects of this traditional Chinese based treatment.\r\n\r\n \r\n4 hours: SGD 460.00 (exclusive of taxes)");
-		textPane_1.setFont(new Font("Candara", Font.PLAIN, 15));
-		textPane_1.setEditable(false);
-		textPane_1.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		textPane_1.setBackground(new Color(255, 204, 255));
-		textPane_1.setAlignmentY(5.0f);
-		textPane_1.setAlignmentX(3.0f);
-		textPane_1.setBounds(358, 167, 320, 241);
-		add(textPane_1);
+		final JTextPane txtpnHarmonisingTheBody_1 = new JTextPane();
+		txtpnHarmonisingTheBody_1.setText("\r\n    Harmonising the body by unblocking the vital\r\n    energy, qi, experience the powerful effects of \r\n    Ginseng and feel the Balancing effects of this\r\n    traditional Chinese based treatment.\r\n\r\n \r\n    4 hours: SGD 460.00 (exclusive of taxes)");
+		txtpnHarmonisingTheBody_1.setFont(new Font("Candara", Font.PLAIN, 15));
+		txtpnHarmonisingTheBody_1.setEditable(false);
+		txtpnHarmonisingTheBody_1.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		txtpnHarmonisingTheBody_1.setBackground(new Color(255, 204, 204));
+		txtpnHarmonisingTheBody_1.setAlignmentY(5.0f);
+		txtpnHarmonisingTheBody_1.setAlignmentX(3.0f);
+		txtpnHarmonisingTheBody_1.setBounds(358, 167, 320, 208);
+		add(txtpnHarmonisingTheBody_1);
 		
 		final JTextPane textPane_2 = new JTextPane();
 		textPane_2.setText("\r\nBased on Malay jamu philosophy, jamu herbal remedies and massages emphasise on healing from within. Be treated to traditional Indonesian and Malay spa therapies.\r\n\r\n \r\n2 hours 30 minutes: SGD 320.00 (exclusive of taxes)");
@@ -95,7 +95,7 @@ public class SpaPackages extends BackgroundPanel {
 		textPane_2.setBackground(new Color(255, 204, 204));
 		textPane_2.setAlignmentY(5.0f);
 		textPane_2.setAlignmentX(3.0f);
-		textPane_2.setBounds(358, 167, 320, 241);
+		textPane_2.setBounds(358, 167, 320, 208);
 		add(textPane_2);
 		
 		final JTextPane textPane_3 = new JTextPane();
@@ -106,7 +106,7 @@ public class SpaPackages extends BackgroundPanel {
 		textPane_3.setBackground(new Color(255, 204, 204));
 		textPane_3.setAlignmentY(5.0f);
 		textPane_3.setAlignmentX(3.0f);
-		textPane_3.setBounds(359, 167, 319, 241);
+		textPane_3.setBounds(359, 167, 319, 208);
 		add(textPane_3);
 		
 		final JTextPane textPane_4 = new JTextPane();
@@ -117,7 +117,7 @@ public class SpaPackages extends BackgroundPanel {
 		textPane_4.setBackground(new Color(255, 204, 204));
 		textPane_4.setAlignmentY(5.0f);
 		textPane_4.setAlignmentX(3.0f);
-		textPane_4.setBounds(358, 167, 320, 241);
+		textPane_4.setBounds(358, 167, 320, 208);
 		add(textPane_4);
 		
 		final JTextPane textPane_5 = new JTextPane();
@@ -128,7 +128,7 @@ public class SpaPackages extends BackgroundPanel {
 		textPane_5.setBackground(new Color(255, 204, 204));
 		textPane_5.setAlignmentY(5.0f);
 		textPane_5.setAlignmentX(3.0f);
-		textPane_5.setBounds(359, 167, 319, 241);
+		textPane_5.setBounds(359, 167, 319, 208);
 		add(textPane_5);
 		btnBookNow.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnBookNow.setOpaque(false);
@@ -155,13 +155,13 @@ public class SpaPackages extends BackgroundPanel {
 		
 		JRadioButton rdbtnBalancingSpaPackage = new JRadioButton("Balancing Spa Package");
 		rdbtnBalancingSpaPackage.setForeground(new Color(0, 0, 0));
-		rdbtnBalancingSpaPackage.setBackground(new Color(255, 204, 255));
+		rdbtnBalancingSpaPackage.setBackground(new Color(255, 204, 204));
 		rdbtnBalancingSpaPackage.setIcon(new ImageIcon(SpaPackages.class.getResource("/images/spa_and_wellness-horz.png")));
 		rdbtnBalancingSpaPackage.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnBalancingSpaPackage.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				textPane_1.setVisible(true);
+				txtpnHarmonisingTheBody_1.setVisible(true);
 				textPane_2.setVisible(false);
 				textPane_3.setVisible(false);
 				textPane_4.setVisible(false);
@@ -182,7 +182,7 @@ public class SpaPackages extends BackgroundPanel {
 		rdbtnHealingSpaPackage.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				textPane_1.setVisible(false);
+				txtpnHarmonisingTheBody_1.setVisible(false);
 				textPane_2.setVisible(true);
 				textPane_3.setVisible(false);
 				textPane_4.setVisible(false);
@@ -197,13 +197,13 @@ public class SpaPackages extends BackgroundPanel {
 		
 		JRadioButton rdbtnJdayExperience = new JRadioButton("JDAY Experience");
 		rdbtnJdayExperience.setForeground(new Color(0, 0, 0));
-		rdbtnJdayExperience.setBackground(new Color(255, 204, 255));
+		rdbtnJdayExperience.setBackground(new Color(255, 204, 204));
 		rdbtnJdayExperience.setIcon(new ImageIcon(SpaPackages.class.getResource("/images/spa_and_wellness-horz.png")));
 		rdbtnJdayExperience.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnJdayExperience.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				textPane_1.setVisible(false);
+				txtpnHarmonisingTheBody_1.setVisible(false);
 				textPane_2.setVisible(false);
 				textPane_3.setVisible(true);
 				textPane_4.setVisible(false);
@@ -218,13 +218,13 @@ public class SpaPackages extends BackgroundPanel {
 		
 		JRadioButton rdbtnBerduadua = new JRadioButton("Berdua-Dua");
 		rdbtnBerduadua.setForeground(new Color(0, 0, 0));
-		rdbtnBerduadua.setBackground(new Color(255, 204, 255));
+		rdbtnBerduadua.setBackground(new Color(255, 204, 204));
 		rdbtnBerduadua.setIcon(new ImageIcon(SpaPackages.class.getResource("/images/spa_and_wellness-horz.png")));
 		rdbtnBerduadua.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnBerduadua.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				textPane_1.setVisible(false);
+				txtpnHarmonisingTheBody_1.setVisible(false);
 				textPane_2.setVisible(false);
 				textPane_3.setVisible(false);
 				textPane_4.setVisible(true);
@@ -245,7 +245,7 @@ public class SpaPackages extends BackgroundPanel {
 		rdbtnBestOfFriends.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				textPane_1.setVisible(false);
+				txtpnHarmonisingTheBody_1.setVisible(false);
 				textPane_2.setVisible(false);
 				textPane_3.setVisible(false);
 				textPane_4.setVisible(false);
