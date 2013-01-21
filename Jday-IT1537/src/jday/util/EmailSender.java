@@ -1,56 +1,54 @@
 package jday.util;
 
 import java.util.*;
-import javax.mail.*;
-import javax.mail.internet.*;
-import javax.activation.*;
+import javax.mail.Message;
 import javax.mail.PasswordAuthentication;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 
 
 public class EmailSender {
 	
-	public static void main(String[] args){
-		
-		//testing to yuwen account.
-		String JdayTo ="yuwen_di@yahoo.com.sg";
-		String JdayFrom = "d.yuwen.yw@gmail.com";
-		String subject ="JDay Booking Number";
+	public static void main(String[] args) {
+		 
+		final String jdaySend = "jday.sg@gmail.com";
+		final String jdayPW = "jdayjday";
+		String subject="Jday booking number";
+		String JdayTo ="d.yuwen.yw@gmail.com";
 		
 		Properties props = new Properties();
 		
-		props.put("mail.smtp.auth", "ture");
+		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");
 		props.put("mail.smtp.host", "smtp.gmail.com");
-		props.put("mail.debug", "true");
-		
-		Session session = Session.getInstance(props, new javax.mail.Authenticator()
-				{protected javax.mail.PasswordAuthentication
-					getPassswordAuthentication()
-				{return new javax.mail.PasswordAuthentication("d.yuwen.yw@gmail.com", "password");
-		}}
-		);
-		
+		props.put("mail.smtp.port", "587");
+ 
+		Session session = Session.getInstance(props,
+		  new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(jdaySend, jdayPW);
+			}
+		  });
+ 
 		try {
-            // Instantiate a message
-            Message msg = new MimeMessage(session);
  
-            //Set message attributes
-            msg.setFrom(new InternetAddress(JdayFrom));
-            InternetAddress[] address = {new InternetAddress(JdayTo)};
-            msg.setRecipients(Message.RecipientType.TO, address);
-            msg.setSubject(subject);
-            msg.setSentDate(new Date());
+			Message message = new MimeMessage(session);
+			
+			message.setFrom(new InternetAddress(jdaySend));
+			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(JdayTo));
+			message.setSubject(subject);
+			message.setText("Dear member, your booking number is 123453.");
  
-            // Set message content
-            msg.setText("Dear member, your booking number is 123456");
+			Transport.send(message);
  
-            //Send the message
-            Transport.send(msg);
-        }
-        catch (MessagingException mex) {
-            // Prints all nested (chained) exceptions as well
-            mex.printStackTrace();
-        }
-	} 
+			//System.out.println("Done");
+ 
+		} catch (MessagingException e) {
+			throw new RuntimeException(e);
+		}
 
-}
+}}
