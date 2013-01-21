@@ -76,19 +76,19 @@ public class SpaPackages extends BackgroundPanel {
 		label.setBounds(461, 130, 103, 14);
 		add(label);
 		
-		final JTextPane txtpnHarmonisingTheBody_1 = new JTextPane();
-		txtpnHarmonisingTheBody_1.setText("\r\n    Harmonising the body by unblocking the vital\r\n    energy, qi, experience the powerful effects of \r\n    Ginseng and feel the Balancing effects of this\r\n    traditional Chinese based treatment.\r\n\r\n \r\n    4 hours: SGD 460.00 (exclusive of taxes)");
-		txtpnHarmonisingTheBody_1.setFont(new Font("Candara", Font.PLAIN, 15));
-		txtpnHarmonisingTheBody_1.setEditable(false);
-		txtpnHarmonisingTheBody_1.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		txtpnHarmonisingTheBody_1.setBackground(new Color(255, 204, 204));
-		txtpnHarmonisingTheBody_1.setAlignmentY(5.0f);
-		txtpnHarmonisingTheBody_1.setAlignmentX(3.0f);
-		txtpnHarmonisingTheBody_1.setBounds(358, 167, 320, 208);
-		add(txtpnHarmonisingTheBody_1);
+		final JTextPane textPane_1 = new JTextPane();
+		textPane_1.setEditable(false);
+		textPane_1.setText("\r\n    Harmonising the body by unblocking the vital\r\n    energy, qi, experience the powerful effects of \r\n    Ginseng and feel the Balancing effects of this\r\n    traditional Chinese based treatment.\r\n\r\n \r\n    4 hours: SGD 460.00 (exclusive of taxes)");
+		textPane_1.setFont(new Font("Candara", Font.PLAIN, 15));
+		textPane_1.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		textPane_1.setBackground(new Color(250, 235, 215));
+		textPane_1.setAlignmentY(5.0f);
+		textPane_1.setAlignmentX(3.0f);
+		textPane_1.setBounds(358, 167, 320, 208);
+		add(textPane_1);
 		
 		final JTextPane textPane_2 = new JTextPane();
-		textPane_2.setText("\r\nBased on Malay jamu philosophy, jamu herbal remedies and massages emphasise on healing from within. Be treated to traditional Indonesian and Malay spa therapies.\r\n\r\n \r\n2 hours 30 minutes: SGD 320.00 (exclusive of taxes)");
+		textPane_2.setText("\r\n  Based on Malay jamu philosophy, jamu herbal\r\n  remedies and massages emphasise on healing\r\n  from within. Be treated to traditional Indonesian\r\n  and Malay spa therapies.\r\n\r\n \r\n  2 hours 30 minutes: SGD 320.00 \r\n  (exclusive oftaxes)");
 		textPane_2.setFont(new Font("Candara", Font.PLAIN, 15));
 		textPane_2.setEditable(false);
 		textPane_2.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
@@ -99,18 +99,17 @@ public class SpaPackages extends BackgroundPanel {
 		add(textPane_2);
 		
 		final JTextPane textPane_3 = new JTextPane();
-		textPane_3.setText("\r\nCreate your own Damai Experience from our a la carte menu. Choose from our a la carte menu your preferred body scrub and massage, and complete your holistic treatment with a healthy spa lunch at Oasis.\r\n\r\n \r\n2 hours 30 minutes: SGD 300.00 (exclusive of taxes)");
+		textPane_3.setText("\r\n Create your own Damai Experience from our a la carte menu. Choose from our a la carte  menu your preferred body scrub and massage, and complete your holistic treatment with  a healthy spa lunch at JDay Restaurant.\r\n\r\n \r\n 2 hours 30 minutes: SGD 300.00\r\n (exclusive of taxes)");
 		textPane_3.setFont(new Font("Candara", Font.PLAIN, 15));
 		textPane_3.setEditable(false);
 		textPane_3.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		textPane_3.setBackground(new Color(255, 204, 204));
-		textPane_3.setAlignmentY(5.0f);
+		textPane_3.setBackground(new Color(250, 235, 215));
 		textPane_3.setAlignmentX(3.0f);
 		textPane_3.setBounds(359, 167, 319, 208);
 		add(textPane_3);
 		
 		final JTextPane textPane_4 = new JTextPane();
-		textPane_4.setText("\r\nUnwind with luxurious treatments with your loved one in our exclusive couple\u2019s suite featuring an indoor stone tub bathed in natural daylight. \r\n- Lemon Sugar Body Polish\r\n- Tranquility Bath\r\n- Targeted Healing Treatment\r\n\r\n2 hours 30 minutes: SGD 600.00 per couple (exclusive of taxes)");
+		textPane_4.setText("\r\n Unwind with luxurious treatments with your loved\r\n one in our exclusive couple\u2019s suite featuring an\r\n  indoor stone tub bathed in natural daylight. \r\n- Lemon Sugar Body Polish\r\n- Tranquility Bath\r\n- Targeted Healing Treatment\r\n\r\n  2 hours 30 minutes: SGD 600.00 per couple\r\n  (exclusive of taxes)");
 		textPane_4.setFont(new Font("Candara", Font.PLAIN, 15));
 		textPane_4.setEditable(false);
 		textPane_4.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
@@ -121,11 +120,11 @@ public class SpaPackages extends BackgroundPanel {
 		add(textPane_4);
 		
 		final JTextPane textPane_5 = new JTextPane();
-		textPane_5.setText("\r\nPlanning a day at the spa? The Best of Friends package is the perfect choice as both of you will enjoy Damai\u2019s signature massage and facial, and complete your afternoon with a healthy spa lunch at Oasis.\r\n\r\n\r\n3 hours: SGD 750.00 per couple (exclusive of taxes)");
+		textPane_5.setText("\r\n  Planning a day at the spa? The Best of Friends\r\n  package is the perfect choice as both of you will\r\n  enjoy Damai\u2019s signature massage and facial, and\r\n  complete your afternoon with a healthy spa\r\n  lunch at JDay Restaurant.\r\n\r\n\r\n  3 hours: SGD 750.00 per couple\r\n  (exclusive of taxes)");
 		textPane_5.setFont(new Font("Candara", Font.PLAIN, 15));
 		textPane_5.setEditable(false);
 		textPane_5.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		textPane_5.setBackground(new Color(255, 204, 204));
+		textPane_5.setBackground(new Color(250, 235, 215));
 		textPane_5.setAlignmentY(5.0f);
 		textPane_5.setAlignmentX(3.0f);
 		textPane_5.setBounds(359, 167, 319, 208);
@@ -155,13 +154,13 @@ public class SpaPackages extends BackgroundPanel {
 		
 		JRadioButton rdbtnBalancingSpaPackage = new JRadioButton("Balancing Spa Package");
 		rdbtnBalancingSpaPackage.setForeground(new Color(0, 0, 0));
-		rdbtnBalancingSpaPackage.setBackground(new Color(255, 204, 204));
+		rdbtnBalancingSpaPackage.setBackground(new Color(250, 235, 215));
 		rdbtnBalancingSpaPackage.setIcon(new ImageIcon(SpaPackages.class.getResource("/images/spa_and_wellness-horz.png")));
 		rdbtnBalancingSpaPackage.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnBalancingSpaPackage.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtpnHarmonisingTheBody_1.setVisible(true);
+				textPane_1.setVisible(true);
 				textPane_2.setVisible(false);
 				textPane_3.setVisible(false);
 				textPane_4.setVisible(false);
@@ -182,7 +181,7 @@ public class SpaPackages extends BackgroundPanel {
 		rdbtnHealingSpaPackage.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtpnHarmonisingTheBody_1.setVisible(false);
+				textPane_1.setVisible(false);
 				textPane_2.setVisible(true);
 				textPane_3.setVisible(false);
 				textPane_4.setVisible(false);
@@ -197,13 +196,13 @@ public class SpaPackages extends BackgroundPanel {
 		
 		JRadioButton rdbtnJdayExperience = new JRadioButton("JDAY Experience");
 		rdbtnJdayExperience.setForeground(new Color(0, 0, 0));
-		rdbtnJdayExperience.setBackground(new Color(255, 204, 204));
+		rdbtnJdayExperience.setBackground(new Color(250, 235, 215));
 		rdbtnJdayExperience.setIcon(new ImageIcon(SpaPackages.class.getResource("/images/spa_and_wellness-horz.png")));
 		rdbtnJdayExperience.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnJdayExperience.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtpnHarmonisingTheBody_1.setVisible(false);
+				textPane_1.setVisible(false);
 				textPane_2.setVisible(false);
 				textPane_3.setVisible(true);
 				textPane_4.setVisible(false);
@@ -218,13 +217,13 @@ public class SpaPackages extends BackgroundPanel {
 		
 		JRadioButton rdbtnBerduadua = new JRadioButton("Berdua-Dua");
 		rdbtnBerduadua.setForeground(new Color(0, 0, 0));
-		rdbtnBerduadua.setBackground(new Color(255, 204, 204));
+		rdbtnBerduadua.setBackground(new Color(250, 235, 215));
 		rdbtnBerduadua.setIcon(new ImageIcon(SpaPackages.class.getResource("/images/spa_and_wellness-horz.png")));
 		rdbtnBerduadua.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		rdbtnBerduadua.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtpnHarmonisingTheBody_1.setVisible(false);
+				textPane_1.setVisible(false);
 				textPane_2.setVisible(false);
 				textPane_3.setVisible(false);
 				textPane_4.setVisible(true);
@@ -234,7 +233,7 @@ public class SpaPackages extends BackgroundPanel {
 		buttonGroup.add(rdbtnBerduadua);
 		rdbtnBerduadua.setFont(new Font("Candara", Font.ITALIC, 16));
 		rdbtnBerduadua.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		rdbtnBerduadua.setBounds(73, 370, 232, 29);
+		rdbtnBerduadua.setBounds(73, 340, 232, 29);
 		add(rdbtnBerduadua);
 		
 		JRadioButton rdbtnBestOfFriends = new JRadioButton("Best of Friends");
@@ -245,7 +244,7 @@ public class SpaPackages extends BackgroundPanel {
 		rdbtnBestOfFriends.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtpnHarmonisingTheBody_1.setVisible(false);
+				textPane_1.setVisible(false);
 				textPane_2.setVisible(false);
 				textPane_3.setVisible(false);
 				textPane_4.setVisible(false);
@@ -255,7 +254,7 @@ public class SpaPackages extends BackgroundPanel {
 		buttonGroup.add(rdbtnBestOfFriends);
 		rdbtnBestOfFriends.setFont(new Font("Candara", Font.ITALIC, 16));
 		rdbtnBestOfFriends.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
-		rdbtnBestOfFriends.setBounds(73, 344, 232, 29);
+		rdbtnBestOfFriends.setBounds(73, 367, 232, 29);
 		add(rdbtnBestOfFriends);
 
 	}

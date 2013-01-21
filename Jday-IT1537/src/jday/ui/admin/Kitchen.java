@@ -53,6 +53,12 @@ public class Kitchen extends BackgroundPanel {
 		panel.setLayout(null);
 		
 		JToggleButton tglbtnNewToggleButton = new JToggleButton("Pending");
+		tglbtnNewToggleButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		tglbtnNewToggleButton.setSelected(true);
 		tglbtnNewToggleButton.setBounds(540, 314, 121, 23);
 		panel.add(tglbtnNewToggleButton);
 		

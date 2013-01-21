@@ -113,7 +113,7 @@ public class SpaBooking extends BackgroundPanel /*BackgroundPanel*/{
 		
 		JComboBox Month = new JComboBox();
 		Month.setFont(new Font("Candara", Font.PLAIN, 14));
-		Month.setModel(new DefaultComboBoxModel(new String[] {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}));
+		Month.setModel(new DefaultComboBoxModel(new String[] {"  Jan", "  Feb", "  Mar", "  Apr", "  May", "  Jun", "  Jul", "  Aug", "  Sep", "  Oct", "  Nov", "  Dec"}));
 		Month.setToolTipText("");
 		Month.setBounds(234, 268, 56, 25);
 		add(Month);
@@ -125,7 +125,7 @@ public class SpaBooking extends BackgroundPanel /*BackgroundPanel*/{
 		
 		JComboBox comboBoxPackages = new JComboBox();
 		comboBoxPackages.setFont(new Font("Candara", Font.PLAIN, 14));
-		comboBoxPackages.setModel(new DefaultComboBoxModel(new String[] {"  JDay's Spa Packages", "  Balancing Spa Package", "  Healing Spa Package", "  Purifying Spa Package", "  Renewing Spa Package", "  JDAY Experience"}));
+		comboBoxPackages.setModel(new DefaultComboBoxModel(new String[] {"  JDay's Spa Packages", "  Balancing Spa Package", "  Healing Spa Package", "  JDAY Experience", "  Berdua-Dua", "  Best of Friends"}));
 		comboBoxPackages.setToolTipText("");
 		comboBoxPackages.setBounds(178, 206, 173, 25);
 		add(comboBoxPackages);

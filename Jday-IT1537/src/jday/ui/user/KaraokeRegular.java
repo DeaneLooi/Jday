@@ -27,6 +27,7 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Color;
 
 public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 	private final ButtonGroup buttonGroup = new ButtonGroup();
@@ -70,26 +71,26 @@ public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 		});
 		button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		button.setOpaque(false);
-		button.setBounds(116, 445, 100, 42);
+		button.setBounds(116, 445, 95, 32);
 		add(button);
-
-		final JTextPane txtpnRoomTypeCorporate = new JTextPane();
-		txtpnRoomTypeCorporate.setText("\r\nRoom Type\t: \tFamily Room\r\nNo. of Person :\t4 - 6 pax\r\n\r\nJDAY Lunch :  11 pm - 2 pm\r\n$13++ or  $18++\r\n2 set Lunch + 3 Soft Drinks/Hot Drinks\r\n\r\nJDAY Happy : 2 pm - 7 pm\r\n$10++ or $14++\r\n2 Standard Drinks Per Pax\r\n\r\nJDAY Dinner : 6 pm - 10 pm\r\n$30++ or $54 ++\r\n4 set Dinner + 4 Standard Drink");
-		txtpnRoomTypeCorporate.setFont(new Font("Candara", Font.PLAIN, 15));
-		txtpnRoomTypeCorporate.setEditable(false);
-		txtpnRoomTypeCorporate.setBorder(new SoftBevelBorder(BevelBorder.LOWERED,null, null, null, null));
-		txtpnRoomTypeCorporate.setBackground(SystemColor.menu);
-		txtpnRoomTypeCorporate.setAlignmentY(5.0f);
-		txtpnRoomTypeCorporate.setAlignmentX(3.0f);
-		txtpnRoomTypeCorporate.setBounds(12, 125, 286, 312);
-		add(txtpnRoomTypeCorporate);
+		
+				final JTextPane txtpnRoomTypeCorporate_1 = new JTextPane();
+				txtpnRoomTypeCorporate_1.setText("\r\nRoom Type\t: \tCorporate Room\r\nNo. of Person :\t5 - 7 pax\r\n\r\nJDAY Lunch :  11 pm - 2 pm\r\n$15++ or  $20++\r\n3 set Lunch + 3 Soft Drinks/Hot Drinks\r\n\r\nJDAY Happy : 2 pm - 7 pm\r\n$14++ or $19++\r\n4 Standard Drinks Per Pax\r\n\r\nJDAY Dinner : 6 pm - 10 pm\r\n$30++ or $54 ++\r\n4 set Dinner + 4 Standard Drink");
+				txtpnRoomTypeCorporate_1.setFont(new Font("Candara", Font.PLAIN, 15));
+				txtpnRoomTypeCorporate_1.setEditable(false);
+				txtpnRoomTypeCorporate_1.setBorder(new SoftBevelBorder(BevelBorder.LOWERED,null, null, null, null));
+				txtpnRoomTypeCorporate_1.setBackground(new Color(250, 235, 215));
+				txtpnRoomTypeCorporate_1.setAlignmentY(5.0f);
+				txtpnRoomTypeCorporate_1.setAlignmentX(3.0f);
+				txtpnRoomTypeCorporate_1.setBounds(12, 125, 286, 312);
+				add(txtpnRoomTypeCorporate_1);
 
 		final JTextPane txtpnRoomTypeFamily = new JTextPane();
-		txtpnRoomTypeFamily.setText("\r\nRoom Type\t: \tCorporate Room\r\nNo. of Person :\t5 - 7 pax\r\n\r\nJDAY Lunch :  11 pm - 2 pm\r\n$15++ or  $20++\r\n3 set Lunch + 3 Soft Drinks/Hot Drinks\r\n\r\nJDAY Happy : 2 pm - 7 pm\r\n$14++ or $19++\r\n4 Standard Drinks Per Pax\r\n\r\nJDAY Dinner : 6 pm - 10 pm\r\n$30++ or $54 ++\r\n4 set Dinner + 4 Standard Drink");
+		txtpnRoomTypeFamily.setText("\r\nRoom Type\t: \tFamily Room\r\nNo. of Person :\t4 - 6 pax\r\n\r\nJDAY Lunch :  11 pm - 2 pm\r\n$13++ or  $18++\r\n2 set Lunch + 3 Soft Drinks/Hot Drinks\r\n\r\nJDAY Happy : 2 pm - 7 pm\r\n$10++ or $14++\r\n2 Standard Drinks Per Pax\r\n\r\nJDAY Dinner : 6 pm - 10 pm\r\n$30++ or $54 ++\r\n4 set Dinner + 4 Standard Drink");
 		txtpnRoomTypeFamily.setFont(new Font("Candara", Font.PLAIN, 15));
 		txtpnRoomTypeFamily.setEditable(false);
 		txtpnRoomTypeFamily.setBorder(new SoftBevelBorder(BevelBorder.LOWERED,null, null, null, null));
-		txtpnRoomTypeFamily.setBackground(SystemColor.menu);
+		txtpnRoomTypeFamily.setBackground(new Color(250, 235, 215));
 		txtpnRoomTypeFamily.setAlignmentY(5.0f);
 		txtpnRoomTypeFamily.setAlignmentX(3.0f);
 		txtpnRoomTypeFamily.setBounds(12, 125, 286, 312);
@@ -100,7 +101,7 @@ public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 		txtpnRoomTypeFriends.setFont(new Font("Candara", Font.PLAIN, 15));
 		txtpnRoomTypeFriends.setEditable(false);
 		txtpnRoomTypeFriends.setBorder(new SoftBevelBorder(BevelBorder.LOWERED, null, null, null, null));
-		txtpnRoomTypeFriends.setBackground(SystemColor.menu);
+		txtpnRoomTypeFriends.setBackground(new Color(250, 235, 215));
 		txtpnRoomTypeFriends.setAlignmentY(5.0f);
 		txtpnRoomTypeFriends.setAlignmentX(3.0f);
 		txtpnRoomTypeFriends.setBounds(12, 125, 286, 312);
@@ -110,7 +111,7 @@ public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 		rdbtnCorporateRoom.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtpnRoomTypeCorporate.setVisible(true);
+				txtpnRoomTypeCorporate_1.setVisible(true);
 				txtpnRoomTypeFamily.setVisible(false);
 				txtpnRoomTypeFriends.setVisible(false);
 			}
@@ -127,7 +128,7 @@ public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 		rdbtnFamilyRoom.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtpnRoomTypeCorporate.setVisible(false);
+				txtpnRoomTypeCorporate_1.setVisible(false);
 				txtpnRoomTypeFamily.setVisible(true);
 				txtpnRoomTypeFriends.setVisible(false);
 			}
@@ -144,8 +145,9 @@ public class KaraokeRegular extends BackgroundPanel /* BackgroundPanel */{
 		rdbtnFriendsRoom.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				txtpnRoomTypeCorporate.setVisible(false);
-				txtpnRoomTypeFamily.setVisible(false);
+				txtpnRoomTypeCorporate_1.setVisible(false);
+				txtpnRoomTypeFamily
+				.setVisible(false);
 				txtpnRoomTypeFriends.setVisible(true);
 			}
 		});
