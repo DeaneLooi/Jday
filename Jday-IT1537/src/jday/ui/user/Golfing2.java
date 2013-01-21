@@ -20,11 +20,10 @@ import javax.swing.table.DefaultTableModel;
 
 import jday.entities.Member;
 import jday.util.BackgroundPanel;
+import org.freixas.jcalendar.JCalendar;
 
 
 public class Golfing2 extends BackgroundPanel {
-	private JTable table;
-	private JTable table_1;
 	
 	public Golfing2() {
 		super();
@@ -43,77 +42,6 @@ public class Golfing2 extends BackgroundPanel {
 	public void initialize() {
 		setSize(new Dimension(750, 500));
 		setLayout(null);
-		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(139, 0, 139));
-		panel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel.setBounds(118, 59, 547, 44);
-		add(panel);
-		panel.setLayout(null);
-		
-		JButton button = new JButton("<");
-		button.setBounds(111, 5, 41, 25);
-		panel.add(button);
-		
-		JLabel lblNewLabel = new JLabel("MAY");
-		lblNewLabel.setBounds(194, 5, 40, 30);
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		panel.add(lblNewLabel);
-		lblNewLabel.setHorizontalTextPosition(SwingConstants.CENTER);
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel.setPreferredSize(new Dimension(40, 30));
-		
-		JSpinner spinner = new JSpinner();
-		spinner.setBounds(246, 10, 80, 26);
-		spinner.setModel(new SpinnerNumberModel(2012, 0, 2013, 0));
-		spinner.setPreferredSize(new Dimension(80, 30));
-		panel.add(spinner);
-		
-		JButton button_1 = new JButton(">");
-		button_1.setBounds(397, 7, 41, 25);
-		panel.add(button_1);
-		
-		
-		table = new JTable();
-		table.setCellSelectionEnabled(true);
-		table.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		table.setOpaque(true);
-		table.setBackground(new Color(255, 240, 245));
-		table.setSelectionBackground(Color.WHITE);
-		table.setRowHeight(35);
-		table.setBorder(new LineBorder(new Color(0, 0, 0)));
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, "1", "2", "3", "4"},
-				{"5", "6", "7", "8", "9", "10", "11"},
-				{"12", "13", "14", "15", "16", "17", "18"},
-				{"19", "20", "21", "22", "23", "24", "25"},
-				{"26", "27", "28", "29", "30", null, null},
-			},
-			new String[] {
-				"New column", "New column", "New column", "New column", "New column", "New column", "New column"
-			}
-		));
-		table.setBounds(118, 133, 547, 175);
-		add(table);
-		
-		table_1 = new JTable();
-		table_1.setBorder(new LineBorder(new Color(0, 0, 0)));
-		table_1.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		table_1.setForeground(new Color(216, 191, 216));
-		table_1.setBackground(Color.DARK_GRAY);
-		table_1.setRowHeight(30);
-		table_1.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"SUN", "MON", "TUES", "WED", "THUR", "FRI", "SAT"},
-			},
-			new String[] {
-				"New column", "New column", "New column", "New column", "New column", "New column", "New column"
-			}
-		));
-		table_1.setBounds(118, 102, 547, 30);
-		add(table_1);
 		
 		JButton btnBack = new JButton("Confirm");
 		btnBack.addActionListener(new ActionListener() {
@@ -177,6 +105,11 @@ public class Golfing2 extends BackgroundPanel {
 		radioButton_4.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		radioButton_4.setBounds(466, 426, 102, 23);
 		add(radioButton_4);
+		
+		JCalendar calendar = new JCalendar();
+		calendar.setBackground(new Color(221, 160, 221));
+		calendar.setBounds(77, 59, 630, 251);
+		add(calendar);
 	
 
 	}

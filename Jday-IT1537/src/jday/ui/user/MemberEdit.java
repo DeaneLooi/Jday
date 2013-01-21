@@ -153,7 +153,7 @@ public class MemberEdit extends BackgroundPanel {
 		JButton button = new JButton("Confirm");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JPanel panel = new Event(myFrame,m);
+				JPanel panel = new EventCalendar(myFrame,m);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();

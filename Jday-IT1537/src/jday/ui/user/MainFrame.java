@@ -20,6 +20,8 @@ import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
 import jday.entities.Member;
+import java.awt.Dimension;
+import java.awt.Rectangle;
 
 public class MainFrame extends JFrame{
 
@@ -57,6 +59,8 @@ public class MainFrame extends JFrame{
 	
 	public MainFrame(){
 		super();
+		setBounds(new Rectangle(0, 0, 750, 500));
+		setSize(new Dimension(750, 500));
 		myFrame=this;
 		initialize();
 	}
@@ -102,7 +106,7 @@ public class MainFrame extends JFrame{
 		if (jContentPane == null) {
 			jContentPane = new JPanel();
 			jContentPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-			jContentPane = new Event(myFrame,m);
+			jContentPane = new EventCalendar(myFrame,m);
 
 
 		}
@@ -223,7 +227,7 @@ public class MainFrame extends JFrame{
 			jMenuEvent.setText("Event");
 			jMenuEvent.addMenuListener(new MenuListener(){
 				public void menuSelected(MenuEvent e){
-					JPanel panel = new Event(myFrame,m);
+					JPanel panel = new EventCalendar(myFrame,m);
 					myFrame.getContentPane().removeAll();
 					myFrame.getContentPane().add(panel);
 					myFrame.getContentPane().validate();
@@ -278,7 +282,7 @@ public class MainFrame extends JFrame{
 	}
 	private JMenu getJMenuMemberId() {
 		if (jMenuMemberId == null) {
-			jMenuMemberId = new JMenu(m.getMemberid());
+			jMenuMemberId = new JMenu();
 			jMenuMemberId.setForeground(new Color(255, 255, 255));
 			jMenuMemberId.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
 			jMenuMemberId.add(getMntmProfile());
