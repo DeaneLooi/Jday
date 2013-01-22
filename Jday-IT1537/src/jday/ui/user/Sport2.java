@@ -22,11 +22,10 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
 import jday.util.BackgroundPanel;
+import org.freixas.jcalendar.JCalendar;
 
 
 public class Sport2 extends BackgroundPanel {
-	private JTable table;
-	private JTable table_1;
 	private JTextField textField;
 
 	/**
@@ -73,77 +72,6 @@ public class Sport2 extends BackgroundPanel {
 		button_1.setBounds(640, 464, 87, 23);
 		add(button_1);
 		
-		JPanel panel = new JPanel();
-		panel.setBorder(new LineBorder(new Color(0, 0, 0), 2));
-		panel.setBackground(new Color(139, 0, 139));
-		panel.setBounds(145, 84, 486, 46);
-		add(panel);
-		panel.setLayout(null);
-		
-		JButton button_2 = new JButton("<");
-		button_2.setBounds(104, 12, 41, 25);
-		panel.add(button_2);
-		
-		JLabel label = new JLabel("MAY");
-		label.setBounds(185, 7, 40, 30);
-		label.setPreferredSize(new Dimension(40, 30));
-		label.setHorizontalTextPosition(SwingConstants.CENTER);
-		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setForeground(Color.WHITE);
-		label.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		panel.add(label);
-		
-		JSpinner spinner = new JSpinner();
-		spinner.setBounds(237, 7, 80, 30);
-		spinner.setModel(new SpinnerListModel(new String[] {"2012"}));
-		spinner.setPreferredSize(new Dimension(80, 30));
-		panel.add(spinner);
-		
-		JButton button_3 = new JButton(">");
-		button_3.setBounds(361, 12, 41, 25);
-		panel.add(button_3);
-		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"SUN ", "MON", "TUE", "WED", "THU", "FRI", "SAT"},
-			},
-			new String[] {
-				"New column", "New column", "New column", "New column", "New column", "New column", "New column"
-			}
-		));
-		table.setRowHeight(35);
-		table.setForeground(Color.WHITE);
-		table.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		table.setBorder(new LineBorder(new Color(0, 0, 0)));
-		table.setBackground(Color.DARK_GRAY);
-		table.setBounds(145, 129, 486, 25);
-		add(table);
-		
-		table_1 = new JTable();
-		table_1.setModel(new DefaultTableModel(
-			new Object[][] {
-				{"", "", "1", "2", "3", "4", "5"},
-				{"6", "7", "8", "9", "10", "11", "12"},
-				{"13", "14", "15", "16", "17", "18", "19"},
-				{"20", "21", "22", "23", "24", "25", "26"},
-				{"27", "28", "29", "30", "31", null, null},
-			},
-			new String[] {
-				"New column", "New column", "New column", "New column", "New column", "New column", "New column"
-			}
-		));
-		table_1.getColumnModel().getColumn(0).setResizable(false);
-		table_1.setSelectionBackground(Color.WHITE);
-		table_1.setRowHeight(35);
-		table_1.setOpaque(true);
-		table_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		table_1.setEnabled(false);
-		table_1.setBorder(new LineBorder(new Color(0, 0, 0)));
-		table_1.setBackground(new Color(255, 240, 245));
-		table_1.setBounds(145, 155, 486, 175);
-		add(table_1);
-		
 		JLabel label_1 = new JLabel("Please  choose your date");
 		label_1.setFont(new Font("Trebuchet MS", Font.PLAIN, 18));
 		label_1.setBounds(89, 57, 246, 23);
@@ -183,6 +111,10 @@ public class Sport2 extends BackgroundPanel {
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Please choose the time", "0800-0900", "0900-1000", "1000-1100", "1100-1200", "1200-1300", "1300-1400", "1400-1500", "1500-1600", "1600-1700", "1700-1800", "1800-1900", "1900-2000"}));
 		comboBox_1.setBounds(457, 421, 157, 20);
 		add(comboBox_1);
+		
+		JCalendar calendar = new JCalendar();
+		calendar.setBounds(89, 94, 572, 238);
+		add(calendar);
 
 	}
 }
