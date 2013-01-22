@@ -18,7 +18,7 @@ public class EmailSender {
 		String subject="Jday booking number";
 		
 		//send to yuwen acc
-		String JdayTo ="d.yuwen.yw@gmail.com";
+		String JdayTo ="daene1995@gmail.com";
 		
 		Properties props = new Properties();
 		

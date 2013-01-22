@@ -4,7 +4,7 @@ import jday.entities.dao.DBController;
 import java.util.ArrayList;
 import java.sql.ResultSet;
 
-public class golfingE {
+public class GolfingE {
 	
 	private int bookingNo;
 	private String memberId;
