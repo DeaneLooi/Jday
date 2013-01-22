@@ -40,37 +40,37 @@ public class ViewDetail extends BackgroundPanel {
 		
 		JLabel lblBadminton = new JLabel("badminton");
 		lblBadminton.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblBadminton.setIcon(new ImageIcon(ViewDetail.class.getResource("/pic/badminton.png")));
+		lblBadminton.setIcon(new ImageIcon(ViewDetail.class.getResource("/images/badminton.png")));
 		lblBadminton.setBounds(405, 74, 100, 100);
 		add(lblBadminton);
 		
 		JLabel lblTennis = new JLabel("tennis");
 		lblTennis.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblTennis.setIcon(new ImageIcon(ViewDetail.class.getResource("/pic/tennis.png")));
+		lblTennis.setIcon(new ImageIcon(ViewDetail.class.getResource("/images/tennis.png")));
 		lblTennis.setBounds(53, 197, 100, 100);
 		add(lblTennis);
 		
 		JLabel lblBasketball = new JLabel("basketball");
 		lblBasketball.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblBasketball.setIcon(new ImageIcon(ViewDetail.class.getResource("/pic/basketball.png")));
+		lblBasketball.setIcon(new ImageIcon(ViewDetail.class.getResource("/images/basketball.png")));
 		lblBasketball.setBounds(53, 74, 100, 100);
 		add(lblBasketball);
 		
 		JLabel lblTtennis = new JLabel("ttennis");
 		lblTtennis.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblTtennis.setIcon(new ImageIcon(ViewDetail.class.getResource("/pic/ttennis.png")));
+		lblTtennis.setIcon(new ImageIcon(ViewDetail.class.getResource("/images/ttennis.png")));
 		lblTtennis.setBounds(405, 323, 100, 100);
 		add(lblTtennis);
 		
 		JLabel lblBowling = new JLabel("volleyball");
 		lblBowling.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblBowling.setIcon(new ImageIcon(ViewDetail.class.getResource("/pic/volleyball.png")));
+		lblBowling.setIcon(new ImageIcon(ViewDetail.class.getResource("/images/volleyball.png")));
 		lblBowling.setBounds(405, 197, 100, 100);
 		add(lblBowling);
 		
 		JLabel lblVolleyball = new JLabel("bowling");
 		lblVolleyball.setBorder(new LineBorder(new Color(0, 0, 0)));
-		lblVolleyball.setIcon(new ImageIcon(ViewDetail.class.getResource("/pic/bowling.png")));
+		lblVolleyball.setIcon(new ImageIcon(ViewDetail.class.getResource("/images/bowling.png")));
 		lblVolleyball.setBounds(53, 323, 100, 100);
 		add(lblVolleyball);
 		

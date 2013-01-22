@@ -21,9 +21,12 @@ import javax.swing.table.DefaultTableModel;
 import jday.entities.Member;
 import jday.util.BackgroundPanel;
 import org.freixas.jcalendar.JCalendar;
+import javax.swing.ButtonGroup;
 
 
 public class Golfing2 extends BackgroundPanel {
+	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	
 	public Golfing2() {
 		super();
@@ -72,18 +75,21 @@ public class Golfing2 extends BackgroundPanel {
 		add(label_1);
 		
 		JRadioButton radioButton = new JRadioButton("Morning");
+		buttonGroup.add(radioButton);
 		radioButton.setOpaque(false);
 		radioButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		radioButton.setBounds(143, 398, 109, 23);
 		add(radioButton);
 		
 		JRadioButton radioButton_1 = new JRadioButton("Afternoon");
+		buttonGroup.add(radioButton_1);
 		radioButton_1.setOpaque(false);
 		radioButton_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		radioButton_1.setBounds(143, 426, 109, 23);
 		add(radioButton_1);
 		
 		JRadioButton radioButton_2 = new JRadioButton("Evening");
+		buttonGroup.add(radioButton_2);
 		radioButton_2.setOpaque(false);
 		radioButton_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		radioButton_2.setBounds(143, 454, 109, 23);
@@ -95,12 +101,14 @@ public class Golfing2 extends BackgroundPanel {
 		add(label_2);
 		
 		JRadioButton radioButton_3 = new JRadioButton("9 Holes");
+		buttonGroup_1.add(radioButton_3);
 		radioButton_3.setOpaque(false);
 		radioButton_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		radioButton_3.setBounds(466, 398, 102, 23);
 		add(radioButton_3);
 		
 		JRadioButton radioButton_4 = new JRadioButton("18 Holes");
+		buttonGroup_1.add(radioButton_4);
 		radioButton_4.setOpaque(false);
 		radioButton_4.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		radioButton_4.setBounds(466, 426, 102, 23);

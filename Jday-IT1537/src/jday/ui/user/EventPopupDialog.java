@@ -17,6 +17,7 @@ import javax.swing.BoxLayout;
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.Color;
+import java.sql.SQLException;
 import java.util.Date;
 
 import javax.swing.border.MatteBorder;
@@ -46,16 +47,25 @@ public class EventPopupDialog extends JDialog {
 	/**
 	 * Create the dialog.
 	 * @param date2 
+	 * @throws SQLException 
 	 */
-	public EventPopupDialog(Date date2) {
+	public EventPopupDialog(Date date2) throws SQLException {
 		// call DAO to retrieve DB 
 		//Event event = EventDAO.getEventByDate("1/2/2013");
 		//jtect.settext(event.getDescrt())
+		String info = " - ";
+		String title = " - ";
+		String venue = " - ";
+		String date1 = " - ";
+		
+		
 		Event event01 = EventDAO.getEventByDate(date2);
-		String info = event01.getInfo();
-		String title = event01.getTitle();
-		String venue = event01.getVenue();
-		String date1 = event01.getDate();
+		if (event01.getDate() != null){
+		info = event01.getInfo();
+		title = event01.getTitle();
+		venue = event01.getVenue();
+		date1 = event01.getDate();
+		}
 		
 		
 		getContentPane().setBackground(new Color(240, 240, 240));

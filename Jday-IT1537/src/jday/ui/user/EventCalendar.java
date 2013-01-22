@@ -24,6 +24,7 @@ import org.freixas.jcalendar.JCalendar;
 import org.freixas.jcalendar.JCalendarCombo;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 import java.util.Date;
 import java.awt.Cursor;
 import org.freixas.jcalendar.DateListener;
@@ -61,7 +62,12 @@ public class EventCalendar extends BackgroundPanel {
 				//save date into a variable
 				//open new window to show events on day clicked. New dialog?
 				JDialog dialog = new JDialog();
-				dialog = new EventPopupDialog(calendar.getDate());
+				try {
+					dialog = new EventPopupDialog(calendar.getDate());
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				//how to make the dialog appear? **************
 				dialog.setVisible(true);
 			}
