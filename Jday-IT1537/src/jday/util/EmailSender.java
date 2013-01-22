@@ -9,15 +9,15 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-
-
 public class EmailSender {
 	
 	public static void main(String[] args) {
-		 
+		
 		final String jdaySend = "jday.sg@gmail.com";
 		final String jdayPW = "jdayjday";
 		String subject="Jday booking number";
+		
+		//send to yuwen acc
 		String JdayTo ="d.yuwen.yw@gmail.com";
 		
 		Properties props = new Properties();
@@ -38,14 +38,16 @@ public class EmailSender {
  
 			Message message = new MimeMessage(session);
 			
+			Random random = new Random();
+			int num = random.nextInt(999999);
+			
+			
 			message.setFrom(new InternetAddress(jdaySend));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(JdayTo));
 			message.setSubject(subject);
-			message.setText("Dear member, your booking number is 123453.");
+			message.setText("Dear member," + "\n" + "your booking number is: " + num);
  
 			Transport.send(message);
- 
-			//System.out.println("Done");
  
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
