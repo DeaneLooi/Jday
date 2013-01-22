@@ -9,7 +9,7 @@ public class EmailSenderTest {
 	@Test
 	public void testSendMessage() {
 		EmailSender sender = new EmailSender();
-		sender.sendMessage("Hello this is me");
+		
 	}
 
 }
