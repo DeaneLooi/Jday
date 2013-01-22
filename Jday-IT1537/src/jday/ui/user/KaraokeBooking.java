@@ -132,13 +132,11 @@ public class KaraokeBooking extends BackgroundPanel /* BackgroundPanel */{
 		JButton btnConfirm = new JButton("Confirm");
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
 				JPanel panel = new KaraokeConfirmation(myFrame);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
 				myFrame.getContentPane().validate();
 				myFrame.getContentPane().repaint();
-
 			}
 		});
 		btnConfirm.setBounds(590, 442, 89, 23);
