@@ -139,14 +139,14 @@ public class AUpdate2 extends BackgroundPanel {
 		
 		JCalendarCombo calendarCombo = new JCalendarCombo();
 		calendarCombo.setBorder(new MatteBorder(1, 1, 1, 1, (Color) Color.GRAY));
-		calendarCombo.setBounds(202, 182, 307, 35);
+		calendarCombo.setBounds(202, 178, 307, 35);
 		add(calendarCombo);
 		
 		textField_1 = new JTextField();
 		textField_1.setBorder(new MatteBorder(1, 1, 1, 1, (Color) Color.GRAY));
 		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		textField_1.setColumns(10);
-		textField_1.setBounds(202, 242, 466, 27);
+		textField_1.setBounds(202, 237, 466, 27);
 		add(textField_1);
 
 	}

@@ -60,7 +60,7 @@ public class AUpdate extends BackgroundPanel {
 		add(label);
 		
 		JCalendar calendar = new JCalendar();
-		calendar.setBorder(new MatteBorder(1, 1, 1, 1, (Color) Color.LIGHT_GRAY));
+		calendar.setBorder(new MatteBorder(1, 1, 1, 1, (Color) Color.GRAY));
 		calendar.setBounds(20, 124, 720, 365);
 		add(calendar);
 
