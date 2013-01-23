@@ -20,6 +20,7 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.SoftBevelBorder;
 
+import jday.entities.KaraokeBookingEntities;
 import jday.util.BackgroundPanel;
 import javax.swing.ButtonGroup;
 import javax.swing.AbstractAction;
@@ -27,17 +28,20 @@ import java.awt.event.ActionEvent;
 import javax.swing.Action;
 import java.awt.event.ActionListener;
 
-public class KaraokeBooking extends BackgroundPanel /* BackgroundPanel */{
+public class KaraokeBooking extends BackgroundPanel implements ActionListener{
 	private JRadioButton rdbtnpm;
 	private JRadioButton rdbtnEveningPm;
 	private JRadioButton rdbtnNoonPm;
-	private JComboBox comboBoxPackages;
+	
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-	private final Action action = new SwingAction();
+	//private final Action action = new SwingAction();
+	
+	private JSpinner day;
+	private JComboBox month;
+	private JSpinner year;
+	
+	private JComboBox rooms;
 
-	/**
-	 * Create the panel.
-	 */
 	public KaraokeBooking() {
 		super();
 		initialize();
@@ -52,6 +56,7 @@ public class KaraokeBooking extends BackgroundPanel /* BackgroundPanel */{
 		setSize(new Dimension(750, 500));
 		setLayout(null);
 
+		/*************************** Select Time ****************************/
 		rdbtnEveningPm = new JRadioButton("JDAY Dinner (6 pm - 10 pm)");
 		buttonGroup.add(rdbtnEveningPm);
 		rdbtnEveningPm.setOpaque(false);
@@ -70,17 +75,17 @@ public class KaraokeBooking extends BackgroundPanel /* BackgroundPanel */{
 		rdbtnpm.setBounds(178, 325, 205, 23);
 		add(rdbtnpm);
 
+		/*************************** Terms & Condition ****************************/
 		JTextPane txtpnAvailableForGroup = new JTextPane();
 		txtpnAvailableForGroup.setFont(new Font("Candara", Font.PLAIN, 15));
 		txtpnAvailableForGroup.setEditable(false);
 		txtpnAvailableForGroup.setBackground(SystemColor.menu);
-		txtpnAvailableForGroup.setBorder(new SoftBevelBorder(
-				BevelBorder.RAISED, null, null, null, null));
-		txtpnAvailableForGroup
-				.setText("All charges are subject to 10% service charge and 7% GST*.\r\n\r\nRooms are subject to availability.\r\n\r\nPlease adhere to the timing generated from the booking system to avoid any inconvenience.\r\n\r\nA grace period of 15 minutes is given from the timing of your booked session.\r\n\r\nAll bookings made cannot be cancelled.\r\n\r\nAll payments made are non refundable.\r\n\r\nAll transactions are in Singapore Dollars (SGD).");
+		txtpnAvailableForGroup.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
+		txtpnAvailableForGroup.setText("All charges are subject to 10% service charge and 7% GST*.\r\n\r\nRooms are subject to availability.\r\n\r\nPlease adhere to the timing generated from the booking system to avoid any inconvenience.\r\n\r\nA grace period of 15 minutes is given from the timing of your booked session.\r\n\r\nAll bookings made cannot be cancelled.\r\n\r\nAll payments made are non refundable.\r\n\r\nAll transactions are in Singapore Dollars (SGD).");
 		txtpnAvailableForGroup.setBounds(430, 70, 251, 359);
 		add(txtpnAvailableForGroup);
 
+		/*************************** Labels ****************************/
 		JLabel lblSession = new JLabel("ROOM TYPE :");
 		lblSession.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
 		lblSession.setBounds(51, 210, 105, 14);
@@ -96,49 +101,42 @@ public class KaraokeBooking extends BackgroundPanel /* BackgroundPanel */{
 		lblTime.setBounds(98, 323, 46, 23);
 		add(lblTime);
 
-		JSpinner spinner = new JSpinner();
-		spinner.setFocusable(false);
-		spinner.setOpaque(false);
-		spinner.setModel(new SpinnerNumberModel(1, 1, 30, 1));
-		spinner.setBounds(178, 270, 46, 22);
-		add(spinner);
+		/*************************** Select Day ****************************/
+		day = new JSpinner();
+		day.setFocusable(false);
+		day.setOpaque(false);
+		day.setModel(new SpinnerNumberModel(1, 1, 30, 1));
+		day.setBounds(178, 270, 46, 22);
+		add(day);
 
-		JComboBox Month = new JComboBox();
-		Month.setFont(new Font("Candara", Font.PLAIN, 14));
-		Month.setModel(new DefaultComboBoxModel(new String[] { "  Jan",
-				"  Feb", "  Mar", "  Apr", "  May", "  Jun", "  Jul", "  Aug",
-				"  Sep", "  Oct", "  Nov", "  Dec" }));
-		Month.setToolTipText("");
-		Month.setBounds(234, 268, 56, 25);
-		add(Month);
+		/*************************** Select Month ****************************/
+		month = new JComboBox();
+		month.setFont(new Font("Candara", Font.PLAIN, 14));
+		month.setModel(new DefaultComboBoxModel(new String[] { "  Jan","  Feb", "  Mar", "  Apr", "  May", "  Jun", "  Jul", "  Aug","  Sep", "  Oct", "  Nov", "  Dec" }));
+		month.setToolTipText("");
+		month.setBounds(234, 268, 56, 25);
+		add(month);
 
-		JSpinner spinner_1 = new JSpinner();
-		spinner_1.setFocusable(false);
-		spinner_1.setOpaque(false);
-		spinner_1.setModel(new SpinnerListModel(new String[] { "2012", "2013",
+		/*************************** Select Year ****************************/
+		year = new JSpinner();
+		year.setFocusable(false);
+		year.setOpaque(false);
+		year.setModel(new SpinnerListModel(new String[] { "2012", "2013",
 				"2014", "2015" }));
-		spinner_1.setBounds(295, 270, 56, 22);
-		add(spinner_1);
+		year.setBounds(295, 270, 56, 22);
+		add(year);
 
-		comboBoxPackages = new JComboBox();
-		comboBoxPackages.setModel(new DefaultComboBoxModel(new String[] {
-				"   JDay's Karaoke", "   Corporate Room", "   Family Room",
-				"   Friend Room" }));
-		comboBoxPackages.setFont(new Font("Candara", Font.PLAIN, 14));
-		comboBoxPackages.setToolTipText("");
-		comboBoxPackages.setBounds(178, 206, 173, 25);
-		add(comboBoxPackages);
+		/*************************** Select Session****************************/
+		rooms = new JComboBox();
+		rooms.setModel(new DefaultComboBoxModel(new String[] {"   JDay's Karaoke", "   Corporate Room", "   Family Room","   Friend Room" }));
+		rooms.setFont(new Font("Candara", Font.PLAIN, 14));
+		rooms.setToolTipText("");
+		rooms.setBounds(178, 206, 173, 25);
+		add(rooms);
 
 		JButton btnConfirm = new JButton("Confirm");
-		btnConfirm.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				JPanel panel = new KaraokeConfirmation(myFrame);
-				myFrame.getContentPane().removeAll();
-				myFrame.getContentPane().add(panel);
-				myFrame.getContentPane().validate();
-				myFrame.getContentPane().repaint();
-			}
-		});
+		btnConfirm.addActionListener(this);
+		btnConfirm.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnConfirm.setBounds(590, 442, 89, 23);
 		add(btnConfirm);
 
@@ -156,13 +154,58 @@ public class KaraokeBooking extends BackgroundPanel /* BackgroundPanel */{
 
 	}
 
-	private class SwingAction extends AbstractAction {
+/*	private class SwingAction extends AbstractAction {
 		public SwingAction() {
 			putValue(NAME, "SwingAction");
 			putValue(SHORT_DESCRIPTION, "Some short description");
 		}
 
+		@Override
 		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
 		}
+	}*/
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		int selectedDay = (int) day.getValue();
+
+		int selected = month.getSelectedIndex();
+		System.out.println("selected index = " + selected);
+		String selectedMonth = (String) (month.getItemAt(selected));
+		System.out.println("Selected month = " + month);
+		
+
+		String selectedYear = (String) year.getValue();
+		
+		
+		/*int selectedT = buttonGroup.selectedIndex();
+		System.out.println("selected count = " + selectedT);
+		int selectedTime = (int)(time.getItemAt(selectedT));
+		System.out.println("Selected time = " + time);*/
+		
+		int selectedR = rooms.getSelectedIndex();
+		System.out.println("selected index = " + selectedR);
+		String selectedRoom = (String) (rooms.getItemAt(selectedR));
+		System.out.println("Selected room = " + rooms);
+
+		KaraokeBookingEntities bookingDetails = new KaraokeBookingEntities();
+		bookingDetails.setDay(selectedDay);
+		bookingDetails.setMonth(selectedMonth);
+		bookingDetails.setYear(selectedYear);
+		
+		//bookingDetails.setTime(selectedTime);
+		
+		bookingDetails.setRooms(selectedRoom);
+	
+
+		KaraokeConfirmation panel = new KaraokeConfirmation(myFrame, bookingDetails);
+
+		myFrame.getContentPane().removeAll();
+		myFrame.getContentPane().add(panel);
+		myFrame.getContentPane().validate();
+		myFrame.getContentPane().repaint();
+
 	}
 }

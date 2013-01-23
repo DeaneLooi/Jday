@@ -11,22 +11,32 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import jday.entities.KaraokeBookingEntities;
+import jday.entities.SpaBookingDetails;
+import jday.entities.dao.SpaBookingDetailsDao;
 import jday.util.BackgroundPanel;
 import javax.swing.JTextField;
 
 public class KaraokeConfirmation extends BackgroundPanel {
 
-
-	public KaraokeConfirmation() {
+	private KaraokeBookingEntities karaokeBookingEntities;
+	
+	public KaraokeConfirmation(JFrame myFrame, KaraokeBookingEntities bookingDetails) {
 		super();
+		karaokeBookingEntities = bookingDetails;
 		initialize();
 	}
 
-	public KaraokeConfirmation(JFrame f) {
+	/*public KaraokeConfirmation(JFrame f) {
 		this();
 		myFrame = f;
 		
 	}
+	
+	public KaraokeConfirmation(JFrame myFrame,
+			KaraokeBookingEntities bookingDetails) {
+		// TODO Auto-generated constructor stub
+	}*/
 	
 	private void initialize(){
 		setSize(750,500);
@@ -35,6 +45,8 @@ public class KaraokeConfirmation extends BackgroundPanel {
 		JButton btnNewButton = new JButton("OK");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				//KaraokeBookingDetailsDao.save(karaokeBookingEntities);
 				JPanel panel = new KaraokeRegular(myFrame);
 				myFrame.getContentPane().removeAll();
 				myFrame.getContentPane().add(panel);
@@ -51,7 +63,12 @@ public class KaraokeConfirmation extends BackgroundPanel {
 		
 		JTextPane txtpnDearMemberYou = new JTextPane();
 		txtpnDearMemberYou.setBorder(new LineBorder(new Color(123, 104, 238), 4));
-		txtpnDearMemberYou.setText("    Dear member, you have booked the following:\r\n\r\n\r\n\tDate: 28 January  2013\r\n\tTime: JDAY Happy (2pm -7pm)\r\n\tRoom Type: Family Room\r\n\t\r\n\r\n\t\tYour booking No. is 5634A\r\n\r\n    Please present the booking number upon\r\n    arrival.      \r\n\t\r\n    Thank you!\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t");
+		
+		String dateDetails = karaokeBookingEntities.getDay() + "." + karaokeBookingEntities.getMonth() + ". " + karaokeBookingEntities.getYear();
+		String roomsDetails = karaokeBookingEntities.getRooms();
+		int timeDetails = karaokeBookingEntities.getTime();
+		
+		txtpnDearMemberYou.setText("      \r\n    Dear member, you have booked the following:\r\n\r\n\r\n\tDate:       " + dateDetails + "\r\n\tTime:       " + timeDetails + "Evening(5pm -7pm)\r\n\tSession: " + roomsDetails + " \r\n\t\r\n\t\tYour booking No. is 5634A\r\n\r\n    Please present the booking number upon\r\n    arrival.       \r\n\t\r\n    Thank you!\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t");
 		txtpnDearMemberYou.setOpaque(false);
 		txtpnDearMemberYou.setEditable(false);
 		txtpnDearMemberYou.setFont(new Font("Tahoma", Font.PLAIN, 17));

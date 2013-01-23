@@ -63,9 +63,11 @@ public class SpaConfirmation extends BackgroundPanel {
 		
 		JTextPane txtpnDearMemberYou = new JTextPane();
 		txtpnDearMemberYou.setBorder(new LineBorder(new Color(123, 104, 238), 4));
+		
 		String dateDetails = spaBookingDetails.getDay() + "." + spaBookingDetails.getMonth() + ". " + spaBookingDetails.getYear();
 		String sessionDetails = spaBookingDetails.getSession();
 		int timeDetails = spaBookingDetails.getTime();
+		
 		txtpnDearMemberYou.setText("      \r\n    Dear member, you have booked the following:\r\n\r\n\r\n\tDate:       " + dateDetails + "\r\n\tTime:       " + timeDetails + "Evening(5pm -7pm)\r\n\tSession: " + sessionDetails + " \r\n\t\r\n\t\tYour booking No. is 5634A\r\n\r\n    Please present the booking number upon\r\n    arrival.       \r\n\t\r\n    Thank you!\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t");
 		txtpnDearMemberYou.setOpaque(false);
 		txtpnDearMemberYou.setEditable(false);

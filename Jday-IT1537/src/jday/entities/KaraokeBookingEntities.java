@@ -1,21 +1,17 @@
 package jday.entities;
 
-public class SpaBookingDetails {
-
+public class KaraokeBookingEntities {
 	int day; 
 	String month;
 	String year;
 	
 	int time; 
 	
-	String session;
+	String rooms;
 	
-	
-	
-	public SpaBookingDetails() {
-		
+	public KaraokeBookingEntities() {
+
 	}
-	
 	public int getDay(){
 		return day;
 	}
@@ -49,13 +45,14 @@ public class SpaBookingDetails {
 		this.time = time;
 	}
 	
-	public String getSession() {
-		return session;
+	public String getRooms() {
+		return rooms;
 	}
 
-	public void setSession(String session) {
-		this.session = session;
+	public void setRooms(String rooms) {
+		this.rooms = rooms;
 	}
+
 
 
 }

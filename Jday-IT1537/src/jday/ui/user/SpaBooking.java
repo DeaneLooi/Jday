@@ -161,10 +161,10 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 		lblSpaBooking.setBounds(50, 26, 301, 121);
 		add(lblSpaBooking);
 
-		JLabel label = new JLabel("Terms & Condition :");
-		label.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
-		label.setBounds(396, 57, 163, 14);
-		add(label);
+		JLabel lblTermsCondition = new JLabel("Terms & Condition :");
+		lblTermsCondition.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
+		lblTermsCondition.setBounds(396, 57, 163, 14);
+		add(lblTermsCondition);
 
 	}
 
