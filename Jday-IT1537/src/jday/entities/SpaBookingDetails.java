@@ -6,9 +6,10 @@ public class SpaBookingDetails {
 
 	int day; 
 	String month;
-	int year;
+	String year;
 	
-	String time; 
+	int time; 
+	
 	String session;
 	
 	
@@ -34,26 +35,22 @@ public class SpaBookingDetails {
 		this.month = month;
 	}
 
-	public int getYear(){
+	public String getYear(){
 		return year;
 	}
 	
-	public void setYear(int year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 	
-	public String getTime() {
+	public int getTime() {
 		return time;
 	}
 
-	public void setTime(String time) {
+	public void setTime(int time) {
 		this.time = time;
 	}
 	
-	public void setTime(ButtonModel time) {
-		
-	}
-
 	public String getSession() {
 		return session;
 	}

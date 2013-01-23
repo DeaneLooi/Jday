@@ -27,10 +27,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
+import java.util.Locale;
+
 import javax.swing.ButtonGroup;
 
-public class SpaBooking extends BackgroundPanel /* BackgroundPanel */implements
-		ActionListener {
+public class SpaBooking extends BackgroundPanel implements ActionListener {
 	private JRadioButton rdbtnpm;
 	private JRadioButton rdbtnNoonPm;
 	private JRadioButton rdbtnEveningPm;
@@ -40,7 +41,10 @@ public class SpaBooking extends BackgroundPanel /* BackgroundPanel */implements
 	private JComboBox month;
 	private JSpinner year;
 	
-	private JComboBox session; 
+	private JComboBox session;
+	
+	private int time; 
+	
 
 	public SpaBooking() {
 		super();
@@ -56,7 +60,7 @@ public class SpaBooking extends BackgroundPanel /* BackgroundPanel */implements
 		setSize(750, 500);
 		setLayout(null);
 
-		/************************************ Select Time ****************************************/
+		/*************************** Select Time ****************************/
 		rdbtnEveningPm = new JRadioButton("Evening (5 pm - 7 pm)");
 		buttonGroup.add(rdbtnEveningPm);
 		rdbtnEveningPm.addPropertyChangeListener(new PropertyChangeListener() {
@@ -91,7 +95,7 @@ public class SpaBooking extends BackgroundPanel /* BackgroundPanel */implements
 		rdbtnpm.setBounds(178, 325, 148, 23);
 		add(rdbtnpm);
 
-		/***************************** Terms and Condition *****************************************/
+		/*************************** Terms & Condition ****************************/
 		JTextPane txtpnAvailableForGroup = new JTextPane();
 		txtpnAvailableForGroup.setFont(new Font("Candara", Font.PLAIN, 15));
 		txtpnAvailableForGroup.setEditable(false);
@@ -101,7 +105,7 @@ public class SpaBooking extends BackgroundPanel /* BackgroundPanel */implements
 		txtpnAvailableForGroup.setBounds(396, 84, 251, 359);
 		add(txtpnAvailableForGroup);
 
-		/******************************** LABELS ****************************************************/
+		/*************************** Labels ****************************/
 		JLabel lblSession = new JLabel("SESSION :");
 		lblSession.setFont(new Font("Trebuchet MS", Font.BOLD, 15));
 		lblSession.setBounds(51, 210, 89, 14);
@@ -117,13 +121,13 @@ public class SpaBooking extends BackgroundPanel /* BackgroundPanel */implements
 		lblTime.setBounds(71, 334, 56, 14);
 		add(lblTime);
 
-		/**************************************** Select Day **************************************/
+		/*************************** Select Day ****************************/
 		day = new JSpinner();
 		day.setModel(new SpinnerNumberModel(1, 1, 30, 1));
 		day.setBounds(178, 270, 46, 22);
 		add(day);
 
-		/***************************************** Select Month **********************************/
+		/*************************** Select Month ****************************/
 		month = new JComboBox();
 		month.setFont(new Font("Candara", Font.PLAIN, 14));
 		month.setModel(new DefaultComboBoxModel(new String[] { "  Jan","  Feb", "  Mar", "  Apr", "  May", "  Jun", "  Jul", "  Aug","  Sep", "  Oct", "  Nov", "  Dec" }));
@@ -131,13 +135,13 @@ public class SpaBooking extends BackgroundPanel /* BackgroundPanel */implements
 		month.setBounds(229, 268, 61, 25);
 		add(month);
 
-		/***************************************** Select Year **********************************/
+		/*************************** Select Year ****************************/
 		year = new JSpinner();
 		year.setModel(new SpinnerListModel(new String[] { "2012", "2013","2014", "2015" }));
 		year.setBounds(295, 270, 56, 22);
 		add(year);
 
-		/***************************************** Select Session **********************************/
+		/*************************** Select Session****************************/
 		session = new JComboBox();
 		session.setFont(new Font("Candara", Font.PLAIN, 14));
 		session.setModel(new DefaultComboBoxModel(new String[] {"  JDay's Spa Packages", "  Balancing Spa Package","  Healing Spa Package", "  JDAY Experience", "  Berdua-Dua","  Best of Friends" }));
@@ -174,11 +178,14 @@ public class SpaBooking extends BackgroundPanel /* BackgroundPanel */implements
 		String selectedMonth = (String) (month.getItemAt(selected));
 		System.out.println("Selected month = " + month);
 		
-		//it'll return the index, how to change it to the string
-		int selectedYear = year.getComponentCount();
+
+		String selectedYear = (String) year.getValue();
 		
 		
-		//ButtonModel selectedTime = buttonGroup.getSelection();
+		/*int selectedT = buttonGroup.selectedIndex();
+		System.out.println("selected count = " + selectedT);
+		int selectedTime = (int)(time.getItemAt(selectedT));
+		System.out.println("Selected time = " + time);*/
 		
 		int selectedS = session.getSelectedIndex();
 		System.out.println("selected index = " + selectedS);
@@ -196,7 +203,6 @@ public class SpaBooking extends BackgroundPanel /* BackgroundPanel */implements
 	
 
 		SpaConfirmation panel = new SpaConfirmation(myFrame, bookingDetails);
-		// panel.setBookingDetails(bookingDetails);
 
 		myFrame.getContentPane().removeAll();
 		myFrame.getContentPane().add(panel);
