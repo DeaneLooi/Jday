@@ -43,7 +43,7 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 	
 	private JComboBox session;
 	
-	private int time; 
+	private String time; 
 	
 
 	public SpaBooking() {
@@ -61,39 +61,25 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 		setLayout(null);
 
 		/*************************** Select Time ****************************/
-		rdbtnEveningPm = new JRadioButton("Evening (5 pm - 7 pm)");
-		buttonGroup.add(rdbtnEveningPm);
-		rdbtnEveningPm.addPropertyChangeListener(new PropertyChangeListener() {
-			public void propertyChange(PropertyChangeEvent arg0) {
-			}
-		});
-		rdbtnEveningPm.setOpaque(false);
-		rdbtnEveningPm.setBounds(178, 387, 148, 23);
-		add(rdbtnEveningPm);
+		rdbtnpm = new JRadioButton("Morning (10 am - 12 pm)");
+		rdbtnpm.setActionCommand("Morning (10 am - 12 pm)");
+		buttonGroup.add(rdbtnpm);		
+		rdbtnpm.setOpaque(false);
+		rdbtnpm.setBounds(178, 325, 173, 23);
+		add(rdbtnpm);
 
 		rdbtnNoonPm = new JRadioButton("Noon (1 pm - 4 pm)");
-		buttonGroup.add(rdbtnNoonPm);
-		rdbtnNoonPm.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
+		rdbtnNoonPm.setActionCommand("Noon (1 pm - 4 pm)");
 		rdbtnNoonPm.setOpaque(false);
-		rdbtnNoonPm.setBounds(178, 357, 148, 23);
+		rdbtnNoonPm.setBounds(178, 357, 173, 23);
 		add(rdbtnNoonPm);
 
-		rdbtnpm = new JRadioButton("AM (10 am - 12 pm)");
-		buttonGroup.add(rdbtnpm);
-		rdbtnpm.addPropertyChangeListener(new PropertyChangeListener() {
-			public void propertyChange(PropertyChangeEvent arg0) {
-			}
-		});
-		rdbtnpm.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		rdbtnpm.setOpaque(false);
-		rdbtnpm.setBounds(178, 325, 148, 23);
-		add(rdbtnpm);
+		rdbtnEveningPm = new JRadioButton("Evening (5 pm - 7 pm)");
+		rdbtnEveningPm.setActionCommand("Evening (5 pm - 7 pm)");
+		buttonGroup.add(rdbtnEveningPm);
+		rdbtnEveningPm.setOpaque(false);
+		rdbtnEveningPm.setBounds(178, 387, 173, 23);
+		add(rdbtnEveningPm);
 
 		/*************************** Terms & Condition ****************************/
 		JTextPane txtpnAvailableForGroup = new JTextPane();
@@ -182,10 +168,8 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 		String selectedYear = (String) year.getValue();
 		
 		
-		/*int selectedT = buttonGroup.selectedIndex();
-		System.out.println("selected count = " + selectedT);
-		int selectedTime = (int)(time.getItemAt(selectedT));
-		System.out.println("Selected time = " + time);*/
+		String selectedT = buttonGroup.getSelection().getActionCommand();
+		System.out.println("Selected time = " + time);
 		
 		int selectedS = session.getSelectedIndex();
 		System.out.println("selected index = " + selectedS);
@@ -197,7 +181,7 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 		bookingDetails.setMonth(selectedMonth);
 		bookingDetails.setYear(selectedYear);
 		
-		//bookingDetails.setTime(selectedTime);
+		bookingDetails.setTime(selectedT);
 		
 		bookingDetails.setSession(selectedSession);
 	
@@ -209,4 +193,6 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 		myFrame.getContentPane().validate();
 		myFrame.getContentPane().repaint();
 	}
+
+
 }

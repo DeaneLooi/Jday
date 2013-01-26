@@ -1,13 +1,19 @@
 package jday.entities;
 
 public class KaraokeBookingEntities {
-	int day; 
-	String month;
-	String year;
 	
-	int time; 
+	private String date;
+	private int day; 
+	private String month;
+	private String year;
 	
-	String rooms;
+	private String time; 
+	
+	private String rooms;
+	
+	private String memberId;
+	
+	private int bookingNo;
 	
 	public KaraokeBookingEntities() {
 
@@ -37,11 +43,11 @@ public class KaraokeBookingEntities {
 		this.year = year;
 	}
 	
-	public int getTime() {
+	public String getTime() {
 		return time;
 	}
 
-	public void setTime(int time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 	
@@ -52,7 +58,29 @@ public class KaraokeBookingEntities {
 	public void setRooms(String rooms) {
 		this.rooms = rooms;
 	}
+	
+	public String getDate() {
+		return date;
+	}
 
+	public void setDate(String date) {
+		this.date = day + month + year;
+	}
 
+	public String getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
+
+	public int getBookingNo() {
+		return bookingNo;
+	}
+
+	public void setBookingNo(int bookingNo) {
+		this.bookingNo = bookingNo;
+	}
 
 }

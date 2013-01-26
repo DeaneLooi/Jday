@@ -28,19 +28,21 @@ import java.awt.event.ActionEvent;
 import javax.swing.Action;
 import java.awt.event.ActionListener;
 
-public class KaraokeBooking extends BackgroundPanel implements ActionListener{
+public class KaraokeBooking extends BackgroundPanel implements ActionListener {
 	private JRadioButton rdbtnpm;
 	private JRadioButton rdbtnEveningPm;
 	private JRadioButton rdbtnNoonPm;
-	
+
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-	//private final Action action = new SwingAction();
-	
+	// private final Action action = new SwingAction();
+
 	private JSpinner day;
 	private JComboBox month;
 	private JSpinner year;
-	
+
 	private JComboBox rooms;
+	
+	private String time; 
 
 	public KaraokeBooking() {
 		super();
@@ -57,23 +59,27 @@ public class KaraokeBooking extends BackgroundPanel implements ActionListener{
 		setLayout(null);
 
 		/*************************** Select Time ****************************/
-		rdbtnEveningPm = new JRadioButton("JDAY Dinner (6 pm - 10 pm)");
-		buttonGroup.add(rdbtnEveningPm);
-		rdbtnEveningPm.setOpaque(false);
-		rdbtnEveningPm.setBounds(178, 392, 205, 23);
-		add(rdbtnEveningPm);
+
+		rdbtnpm = new JRadioButton("JDAY Lunch (11 am - 2 pm)");
+		rdbtnpm.setActionCommand("JDAY Lunch (11 am - 2 pm)");
+		buttonGroup.add(rdbtnpm);
+		rdbtnpm.setOpaque(false);
+		rdbtnpm.setBounds(178, 325, 205, 23);
+		add(rdbtnpm);
 
 		rdbtnNoonPm = new JRadioButton("JDAY Happy (2 pm - 7 pm)");
+		rdbtnNoonPm.setActionCommand("JDAY Happy (2 pm - 7 pm)");
 		buttonGroup.add(rdbtnNoonPm);
 		rdbtnNoonPm.setOpaque(false);
 		rdbtnNoonPm.setBounds(178, 357, 205, 23);
 		add(rdbtnNoonPm);
 
-		rdbtnpm = new JRadioButton("JDAY Lunch (11 am - 2 pm)");
-		buttonGroup.add(rdbtnpm);
-		rdbtnpm.setOpaque(false);
-		rdbtnpm.setBounds(178, 325, 205, 23);
-		add(rdbtnpm);
+		rdbtnEveningPm = new JRadioButton("JDAY Dinner (6 pm - 10 pm)");
+		rdbtnEveningPm.setActionCommand("JDAY Dinner (6 pm - 10 pm)");
+		buttonGroup.add(rdbtnEveningPm);
+		rdbtnEveningPm.setOpaque(false);
+		rdbtnEveningPm.setBounds(178, 392, 205, 23);
+		add(rdbtnEveningPm);
 
 		/*************************** Terms & Condition ****************************/
 		JTextPane txtpnAvailableForGroup = new JTextPane();
@@ -121,14 +127,13 @@ public class KaraokeBooking extends BackgroundPanel implements ActionListener{
 		year = new JSpinner();
 		year.setFocusable(false);
 		year.setOpaque(false);
-		year.setModel(new SpinnerListModel(new String[] { "2012", "2013",
-				"2014", "2015" }));
+		year.setModel(new SpinnerListModel(new String[] { "2012", "2013","2014", "2015" }));
 		year.setBounds(295, 270, 56, 22);
 		add(year);
 
-		/*************************** Select Session****************************/
+		/*************************** Select Session ****************************/
 		rooms = new JComboBox();
-		rooms.setModel(new DefaultComboBoxModel(new String[] {"   JDay's Karaoke", "   Corporate Room", "   Family Room","   Friend Room" }));
+		rooms.setModel(new DefaultComboBoxModel(new String[] {"   JDay's Karaoke", "   Corporate Room", "   Family Room", "   Friend Room" }));
 		rooms.setFont(new Font("Candara", Font.PLAIN, 14));
 		rooms.setToolTipText("");
 		rooms.setBounds(178, 206, 173, 25);
@@ -141,8 +146,7 @@ public class KaraokeBooking extends BackgroundPanel implements ActionListener{
 		add(btnConfirm);
 
 		JLabel lblKaraokeBooking = new JLabel("KARAOKE BOOKING");
-		lblKaraokeBooking.setIcon(new ImageIcon(KaraokeBooking.class
-				.getResource("/images/microphone.png")));
+		lblKaraokeBooking.setIcon(new ImageIcon(KaraokeBooking.class.getResource("/images/microphone.png")));
 		lblKaraokeBooking.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		lblKaraokeBooking.setBounds(35, 13, 297, 155);
 		add(lblKaraokeBooking);
@@ -154,18 +158,16 @@ public class KaraokeBooking extends BackgroundPanel implements ActionListener{
 
 	}
 
-/*	private class SwingAction extends AbstractAction {
-		public SwingAction() {
-			putValue(NAME, "SwingAction");
-			putValue(SHORT_DESCRIPTION, "Some short description");
-		}
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-	}*/
+	/*
+	 * private class SwingAction extends AbstractAction { public SwingAction() {
+	 * putValue(NAME, "SwingAction"); putValue(SHORT_DESCRIPTION,
+	 * "Some short description"); }
+	 * 
+	 * @Override public void actionPerformed(ActionEvent e) { // TODO
+	 * Auto-generated method stub
+	 * 
+	 * } }
+	 */
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
@@ -175,16 +177,12 @@ public class KaraokeBooking extends BackgroundPanel implements ActionListener{
 		System.out.println("selected index = " + selected);
 		String selectedMonth = (String) (month.getItemAt(selected));
 		System.out.println("Selected month = " + month);
-		
 
 		String selectedYear = (String) year.getValue();
-		
-		
-		/*int selectedT = buttonGroup.selectedIndex();
-		System.out.println("selected count = " + selectedT);
-		int selectedTime = (int)(time.getItemAt(selectedT));
-		System.out.println("Selected time = " + time);*/
-		
+
+		String selectedT = buttonGroup.getSelection().getActionCommand();
+		System.out.println("Selected time = " + time);
+
 		int selectedR = rooms.getSelectedIndex();
 		System.out.println("selected index = " + selectedR);
 		String selectedRoom = (String) (rooms.getItemAt(selectedR));
@@ -194,13 +192,13 @@ public class KaraokeBooking extends BackgroundPanel implements ActionListener{
 		bookingDetails.setDay(selectedDay);
 		bookingDetails.setMonth(selectedMonth);
 		bookingDetails.setYear(selectedYear);
-		
-		//bookingDetails.setTime(selectedTime);
-		
-		bookingDetails.setRooms(selectedRoom);
-	
 
-		KaraokeConfirmation panel = new KaraokeConfirmation(myFrame, bookingDetails);
+		bookingDetails.setTime(selectedT);
+
+		bookingDetails.setRooms(selectedRoom);
+
+		KaraokeConfirmation panel = new KaraokeConfirmation(myFrame,
+				bookingDetails);
 
 		myFrame.getContentPane().removeAll();
 		myFrame.getContentPane().add(panel);
