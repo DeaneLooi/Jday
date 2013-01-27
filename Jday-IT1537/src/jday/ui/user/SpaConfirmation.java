@@ -42,25 +42,6 @@ public class SpaConfirmation extends BackgroundPanel {
 		setSize(750,500);
 		setLayout(null);
 		
-		JButton btnNewButton = new JButton("OK");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				//SpaBookingDetailsDao.save(spaBookingDetails);
-				JPanel panel = new SpaPackages(myFrame);
-				myFrame.getContentPane().removeAll();
-				myFrame.getContentPane().add(panel);
-				myFrame.getContentPane().validate();
-				myFrame.getContentPane().repaint();
-				
-			}
-		});
-		btnNewButton.setOpaque(false);
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnNewButton.setForeground(new Color(0, 0, 0));
-		btnNewButton.setBounds(316, 309, 89, 23);
-		add(btnNewButton);
-		
 		JTextPane txtpnDearMemberYou = new JTextPane();
 		txtpnDearMemberYou.setBorder(new LineBorder(new Color(123, 104, 238), 4));
 		

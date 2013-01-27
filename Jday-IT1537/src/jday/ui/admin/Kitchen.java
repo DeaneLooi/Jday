@@ -56,40 +56,39 @@ public class Kitchen extends BackgroundPanel {
 
 		JPanel panel = new JPanel();
 		panel.setOpaque(false);
-		panel.setBorder(new TitledBorder(null, "JPanel title",
-				TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel.setBorder(new TitledBorder(null, "JPanel title", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		panel.setBounds(-6, -16, 762, 523);
 		add(panel);
 		panel.setLayout(null);
 		
-		JTable table = new JTable();
-		
 		ArrayList<FnB>list = FnB.searchFnbOrder(null);
 		FnBViewTableModel model = new FnBViewTableModel(list);
-		table.setModel(model);
-		table.setBounds(0,0,600,400);
-		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(50, 50, 600, 400);
-		add(scrollPane);
 
 		JLabel lblMembersParticular = new JLabel("RESTAURANT ORDER SUMMARY");
 		lblMembersParticular.setForeground(new Color(0, 0, 0));
 		lblMembersParticular.setFont(new Font("Trebuchet MS", Font.BOLD, 17));
-		lblMembersParticular.setBounds(224, 23, 268, 46);
+		lblMembersParticular.setBounds(225, 30, 268, 46);
 		panel.add(lblMembersParticular);
 		lblMembersParticular.setHorizontalAlignment(SwingConstants.CENTER);
 
 		JButton btnRefresh = new JButton("Refresh");
 		btnRefresh.setOpaque(false);
 		btnRefresh.setFont(new Font("Candara", Font.PLAIN, 12));
-		btnRefresh.setBounds(52, 470, 86, 23);
+		btnRefresh.setBounds(52, 444, 86, 23);
 		panel.add(btnRefresh);
 		
 		JButton btnDelete = new JButton("Delete");
 		btnDelete.setOpaque(false);
 		btnDelete.setFont(new Font("Candara", Font.PLAIN, 12));
-		btnDelete.setBounds(150, 469, 86, 23);
+		btnDelete.setBounds(153, 444, 86, 23);
 		panel.add(btnDelete);
+		
+		JTable table_1 = new JTable();
+		table_1.setModel(model);
+		table_1.setBounds(0,0,600,400);
+		JScrollPane scrollPane = new JScrollPane(table_1);
+		scrollPane.setBounds(52, 100, 653, 319);
+		panel.add(scrollPane);
 
 	}
 }

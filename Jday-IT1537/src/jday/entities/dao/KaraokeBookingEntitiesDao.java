@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 import jday.entities.Member;
 import jday.entities.KaraokeBookingEntities;
+import jday.entities.KaraokeBookingEntities;
+import jday.entities.KaraokeBookingEntities;
 import jday.ui.user.KaraokeBooking;
 
 public class KaraokeBookingEntitiesDao {
@@ -18,20 +20,19 @@ public class KaraokeBookingEntitiesDao {
 	static PreparedStatement pstmt1 = null;
 	
 
-
-	// added in another comment
-	// added in another comment to test conflict2
 	public static KaraokeBookingEntities spaBooking(KaraokeBookingEntities kBooking, Member m) {
 		DBController db = new DBController();
 		Connection currentCon = db.getConnection();
+		
 		Statement stmt = null;
 		
-		// get the last member ID 
+		
 		try {
 	
             // query for inserting into the table
-            String query = "insert into spakaraoke(bookingno, memberid, time, date, session) values(?,?,?,?,?)";
+            String query = "insert into spakaraoke(bookingno, memberid, time, date, session/roomtype) values(?,?,?,?,?)";
             pstmt = currentCon.prepareStatement(query);
+            
             // inserting values
             pstmt.setInt(1, kBooking.getBookingNo());
             pstmt.setString(2, m.getMemberid());
@@ -44,10 +45,10 @@ public class KaraokeBookingEntitiesDao {
             
 		} catch (Exception ex) {
 
-			System.out.println("Registration failed: An Exception has occurred! "+ ex);
+			System.out.println("Booking failed! "+ ex);
 		}
 
-		// exception handling
+		
 		finally {
 			if (rs != null) {
 				try {
@@ -78,11 +79,11 @@ public class KaraokeBookingEntitiesDao {
 
 	}
 	
-/*	public static ArrayList<SpaBookingDetails> retrieveAll() {
-		SpaBookingDetails spaBookings = null;
+	public static ArrayList<KaraokeBookingEntities> retrieveAll() {
+		KaraokeBookingEntities kBookings = null;
 		Statement stmt = null;
-        String searchQuery = "select * from member";
-        ArrayList<SpaBookingDetails> spaBookingDetailsList = new ArrayList<SpaBookingDetails>();
+        String searchQuery = "select * from spakaraoke";
+        ArrayList<KaraokeBookingEntities> spaBookingDetailsList = new ArrayList<KaraokeBookingEntities>();
         try {
             // connect to DB
             currentCon = DBController.getConnection();
@@ -90,18 +91,17 @@ public class KaraokeBookingEntitiesDao {
             rs = stmt.executeQuery(searchQuery);
             while (rs.next()) {
             
-                String memberId = rs.getString("member_id");
-                String memberName = rs.getString("name");
-                String memberTel = rs.getString("tel");
-                String username = rs.getString("username");
-                String password = rs.getString("password");
-                spaBookings = new SpaBookingDetails();
-                spaBookings.setMemberId(memberId);
-                spaBookings.setTime(memberName);
-                spaBookings.setTel(memberTel);
-                spaBookings.setUsername(username);
-                spaBookings.setPassword(password);
-                spaBookingDetailsList.add(spaBookings);
+                String bookingNo = rs.getString("bookingNo");
+                String memberId = rs.getString("memberId");
+                String time = rs.getString("time");
+                String date = rs.getString("date");
+                String rooms = rs.getString("room");
+                
+                kBookings = new KaraokeBookingEntities();
+                kBookings.setMemberId(memberId);
+                kBookings.setTime(time);
+                kBookings.setDate(date);
+                kBookings.setRooms(rooms);
             }
         } catch (Exception e) {
         	e.printStackTrace();
@@ -109,7 +109,7 @@ public class KaraokeBookingEntitiesDao {
 
 		return  spaBookingDetailsList;
 	}
-	*/
+
 	
 }
 

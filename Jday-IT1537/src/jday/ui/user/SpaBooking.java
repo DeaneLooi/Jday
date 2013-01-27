@@ -35,7 +35,6 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 	private JRadioButton rdbtnpm;
 	private JRadioButton rdbtnNoonPm;
 	private JRadioButton rdbtnEveningPm;
-	private ButtonGroup buttonGroup = new ButtonGroup();
 
 	private JSpinner day;
 	private JComboBox month;
@@ -44,6 +43,7 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 	private JComboBox session;
 	
 	private String time; 
+	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	
 
 	public SpaBooking() {
@@ -62,21 +62,22 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 
 		/*************************** Select Time ****************************/
 		rdbtnpm = new JRadioButton("Morning (10 am - 12 pm)");
+		buttonGroup_1.add(rdbtnpm);
 		rdbtnpm.setActionCommand("Morning (10 am - 12 pm)");
-		buttonGroup.add(rdbtnpm);		
 		rdbtnpm.setOpaque(false);
 		rdbtnpm.setBounds(178, 325, 173, 23);
 		add(rdbtnpm);
 
 		rdbtnNoonPm = new JRadioButton("Noon (1 pm - 4 pm)");
+		buttonGroup_1.add(rdbtnNoonPm);
 		rdbtnNoonPm.setActionCommand("Noon (1 pm - 4 pm)");
 		rdbtnNoonPm.setOpaque(false);
 		rdbtnNoonPm.setBounds(178, 357, 173, 23);
 		add(rdbtnNoonPm);
 
 		rdbtnEveningPm = new JRadioButton("Evening (5 pm - 7 pm)");
+		buttonGroup_1.add(rdbtnEveningPm);
 		rdbtnEveningPm.setActionCommand("Evening (5 pm - 7 pm)");
-		buttonGroup.add(rdbtnEveningPm);
 		rdbtnEveningPm.setOpaque(false);
 		rdbtnEveningPm.setBounds(178, 387, 173, 23);
 		add(rdbtnEveningPm);
@@ -168,7 +169,7 @@ public class SpaBooking extends BackgroundPanel implements ActionListener {
 		String selectedYear = (String) year.getValue();
 		
 		
-		String selectedT = buttonGroup.getSelection().getActionCommand();
+		String selectedT = buttonGroup_1.getSelection().getActionCommand();
 		System.out.println("Selected time = " + time);
 		
 		int selectedS = session.getSelectedIndex();

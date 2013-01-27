@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import jday.entities.KaraokeBookingEntities;
 import jday.entities.Member;
 import jday.entities.SpaBookingDetails;
 import jday.ui.user.SpaBooking;
@@ -19,19 +20,18 @@ public class SpaBookingDetailsDao {
 	
 
 
-	// added in another comment
-	// added in another comment to test conflict2
+	
 	public static SpaBookingDetails spaBooking(SpaBookingDetails sBooking, Member m) {
 		DBController db = new DBController();
 		Connection currentCon = db.getConnection();
 		Statement stmt = null;
 		
-		// get the last member ID 
 		try {
 	
             // query for inserting into the table
-            String query = "insert into spakaraoke(bookingno, memberid, time, date, session/roomtype) values(?,?,?,?,?)";
+            String query = "insert into spakaraoke(bookingno, memberid, time, date, sessionORroomtype) values(?,?,?,?,?)";
             pstmt = currentCon.prepareStatement(query);
+            
             // inserting values
             pstmt.setInt(1, sBooking.getBookingNo());
             pstmt.setString(2, m.getMemberid());
@@ -79,10 +79,10 @@ public class SpaBookingDetailsDao {
 
 	}
 	
-/*	public static ArrayList<SpaBookingDetails> retrieveAll() {
+	public static ArrayList<SpaBookingDetails> retrieveAll() {
 		SpaBookingDetails spaBookings = null;
 		Statement stmt = null;
-        String searchQuery = "select * from member";
+        String searchQuery = "select * from spakaraoke";
         ArrayList<SpaBookingDetails> spaBookingDetailsList = new ArrayList<SpaBookingDetails>();
         try {
             // connect to DB
@@ -91,18 +91,17 @@ public class SpaBookingDetailsDao {
             rs = stmt.executeQuery(searchQuery);
             while (rs.next()) {
             
-                String memberId = rs.getString("member_id");
-                String memberName = rs.getString("name");
-                String memberTel = rs.getString("tel");
-                String username = rs.getString("username");
-                String password = rs.getString("password");
+                String bookingNo = rs.getString("bookingNo");
+                String memberId = rs.getString("memberId");
+                String time = rs.getString("time");
+                String date = rs.getString("date");
+                String session = rs.getString("session");
+                
                 spaBookings = new SpaBookingDetails();
                 spaBookings.setMemberId(memberId);
-                spaBookings.setTime(memberName);
-                spaBookings.setTel(memberTel);
-                spaBookings.setUsername(username);
-                spaBookings.setPassword(password);
-                spaBookingDetailsList.add(spaBookings);
+                spaBookings.setTime(time);
+                spaBookings.setDate(date);
+                spaBookings.setSession(session);
             }
         } catch (Exception e) {
         	e.printStackTrace();
@@ -110,17 +109,15 @@ public class SpaBookingDetailsDao {
 
 		return  spaBookingDetailsList;
 	}
-	*/
+	
 	
 	public static void main (String [] args){
 		SpaBookingDetails s = new SpaBookingDetails();
-		s.setBookingNo(18731);
-		s.setDate("12.12.12");
-		s.setSession("JDAY");
-		s.setTime("12");
+	    s.getTime();
+        s.getDate();
+        s.getSession();
 		Member m = new Member("123123A");
 		SpaBookingDetailsDao.spaBooking(s, m);
-		
 	}
 }
 
